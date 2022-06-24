@@ -44,7 +44,7 @@ body {
 
 .footer {
     font-size: 16px;
-    text-transform: lowercase;
+    text-transform: uppercase;
     padding-inline: 10px;
     margin: auto;
     height: 60px;
