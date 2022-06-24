@@ -10,6 +10,7 @@
             integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
             crossorigin="anonymous"
         >
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css">
         <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
         <title>{% block head %}{% endblock %}Max Fung</title>
     </head>
@@ -39,8 +40,15 @@
             </nav>
             {% block content %}{% endblock %}
             <footer class="footer">
-                <div class="container">
-                  <span class="text-muted">By Max Fung <span style="font-family: sans-serif;">©</span> {{ now.year }}</span>
+                <div class="d-flex justify-content-between">
+                    <span class="text-muted">By Max Fung <span style="font-family: sans-serif;">©</span> {{ now.year }}</span>
+                    <div class="footer-icons">
+                        <a href="https://instagram.com/maxhenryfung/" target="_blank"><i class="bi-instagram"></i></a>
+                        <a href="https://twitter.com/mxfng/" target="_blank"><i class="bi-twitter"></i></a>
+                        <a href="https://www.tiktok.com/@maxfungg" target="_blank"><i class="bi-tiktok"></i></a>
+                        <a href="https://github.com/mxfng/" target="_blank"><i class="bi-github"></i></a>
+                        <a href="https://www.linkedin.com/in/maxfung/" target="_blank"><i class="bi-linkedin"></i></a>
+                    </div>
                 </div>
             </footer>
         </div>
