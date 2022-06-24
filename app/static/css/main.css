@@ -1,5 +1,10 @@
 /* Global Styles */
 
+:root {
+    --main-bg-color: #fff;
+    --max-page-width: 1100px;
+}
+
 html {
     position: relative;
     min-height: 100%;
@@ -8,6 +13,7 @@ html {
 body {
     font-family: qirate;
     font-size: 18px;
+    background-color: var(--main-bg-color);
     margin-bottom: 60px;
     margin:0;
     padding:0;
@@ -21,20 +27,13 @@ body {
 
 /* Navbar Styles */
 
-.nav-section {
-
-}
-
 .navbar-expand-lg {
-    max-width: 1000px;
-    margin: auto;
-}
-
-.navbar .navbar-nav {
-    text-transform: lowercase;
+    max-width: var(--max-page-width);
+    background-color: var(--main-bg-color);
 }
 
 .navbar-nav > li{
+    text-transform: lowercase;
     margin-right: 20px;
 }
 
@@ -42,46 +41,36 @@ body {
     margin-right: 40px;
 }
 
-.sticky {
-    position: fixed;
-    top: 0;
-    width: 100%;
-}
-
 /* Content Styles */
 
-.content {
-    max-width: 1000px;
+.wrapper {
+    max-width: var(--max-page-width);
     margin: auto;
-    padding: 16px;
 }
 
-/* Add some top padding to the page content to prevent sudden quick movement (as the navigation bar gets a new position at the top of the page (position:fixed and top:0) */
-.sticky + .content {
-    padding-top: 60px;
-  }
+.content {
+    min-height: 400px;
+    padding: 16px;
+    margin-bottom: 60px;
+    clear: both;
+}
 
 /* Footer Styles */
 
 .footer {
-    font-size: 16px;
-    text-transform: uppercase;
-    padding-inline: 10px;
-    margin: auto;
-    height: 60px;
-    max-width: 1000px;
-    line-height: 60px;
-
-    width: 100%;
     position:absolute;
     bottom:0;
-}
-
-.footer-icons {
-    font-size: 18px;
+    font-size: 16px;
+    text-transform: uppercase;
+    line-height: 60px;
+    padding: 0px 10px 0px 10px;
+    height: 60px;
+    max-width: var(--max-page-width);
+    width: 100%;
 }
 
 .footer-icons > a {
+    font-size: 18px;
     color: #000000;
     padding-left: 7px;
 }

@@ -14,33 +14,35 @@
         <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
         <title>{% block head %}{% endblock %}Max Fung</title>
     </head>
-    <div id="nav-section">
-        <nav class="navbar navbar-expand-lg">
-            <div class="container-fluid">
-                <a class="navbar-brand" href="/home">
-                    <img src="{{ url_for('static', filename='img/site-logo.png') }}", height="50">
-                </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-                    <img src="{{ url_for('static', filename='img/max-fung-toggler-icon.png') }}", height="30">
-                </button>
-                <div class="collapse navbar-collapse" id="navbarText">
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                        <li><a class="nav-item nav-link" href="/music">Music</a></li>
-                        <li><a class="nav-item nav-link" href="/dev">Dev</a></li>
-                        <li><a class="nav-item nav-link" href="/projects">Projects</a></li>
-                        <li><a class="nav-item nav-link" href="/blog">Blog</a></li>
-                    </ul>
-                    <ul class="navbar-nav navbar-right">
-                        <li><a class="nav-item nav-link" href="/about">About</a></li>
-                        <li><a class="nav-item nav-link" href="/contact">Contact</a></li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-    </div>
     <body>
+        <div class="wrapper">
+            <nav class="navbar sticky-top navbar-expand-lg">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="/home">
+                        <img src="{{ url_for('static', filename='img/site-logo.png') }}", height="40">
+                    </a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+                        <i class="bi-asterisk"></i>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarText">
+                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                            <li><a class="nav-item nav-link" href="/music">Music</a></li>
+                            <li><a class="nav-item nav-link" href="/dev">Dev</a></li>
+                            <li><a class="nav-item nav-link" href="/projects">Projects</a></li>
+                            <li><a class="nav-item nav-link" href="/blog">Blog</a></li>
+                        </ul>
+                        <ul class="navbar-nav navbar-right">
+                            <li><a class="nav-item nav-link" href="/about">About</a></li>
+                            <li><a class="nav-item nav-link" href="/contact">Contact</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </div>
         <div class="content">
             {% block content %}{% endblock %}
+        </div>
+        <div class="wrapper">
             <footer class="footer">
                 <div class="d-flex justify-content-between">
                     <span class="text-muted">By Max Fung <span style="font-family: sans-serif;">©</span> {{ now.year }}</span>
@@ -59,5 +61,6 @@
         integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
         crossorigin="anonymous"
         ></script>
+        <script src="{{ url_for('static', filename='js/navbar.js') }}"></script>
     </body>
 </html>
