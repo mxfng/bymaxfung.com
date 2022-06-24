@@ -21,6 +21,15 @@ body {
 
 /* Navbar Styles */
 
+.nav-section {
+
+}
+
+.navbar-expand-lg {
+    max-width: 1000px;
+    margin: auto;
+}
+
 .navbar .navbar-nav {
     text-transform: lowercase;
 }
@@ -33,12 +42,24 @@ body {
     margin-right: 40px;
 }
 
+.sticky {
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+
 /* Content Styles */
 
 .content {
     max-width: 1000px;
     margin: auto;
+    padding: 16px;
 }
+
+/* Add some top padding to the page content to prevent sudden quick movement (as the navigation bar gets a new position at the top of the page (position:fixed and top:0) */
+.sticky + .content {
+    padding-top: 60px;
+  }
 
 /* Footer Styles */
 
