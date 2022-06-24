@@ -1,19 +1,22 @@
-@font-face{
-    font-family: qirate;
-    src: url('../fonts/Qirate.otf');
+/* Global Styles */
+
+html {
+    position: relative;
+    min-height: 100%;
 }
 
 body {
     font-family: qirate;
     font-size: 18px;
+    margin-bottom: 60px; /* Margin bottom by footer height */
 }
 
-.content {
-    max-width: 1000px;
-    margin: auto;
+@font-face{
+    font-family: qirate;
+    src: url('../fonts/Qirate.otf');
 }
 
-/* Navbar */
+/* Navbar Styles */
 
 .navbar .navbar-nav {
     text-transform: lowercase;
@@ -25,4 +28,23 @@ body {
 
 .navbar-brand {
     margin-right: 40px;
+}
+
+/* Content Styles */
+
+.content {
+    max-width: 1000px;
+    margin: auto;
+}
+
+/* Footer Styles */
+
+.footer {
+    font-size: 14px;
+    text-transform: uppercase;
+    position: absolute;
+    bottom: 0;
+    width: 1000px;
+    height: 60px;
+    line-height: 60px;
 }

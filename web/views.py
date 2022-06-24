@@ -1,4 +1,5 @@
 from flask import Blueprint, render_template
+from datetime import datetime
 
 views = Blueprint("views", __name__)
 
@@ -27,6 +28,12 @@ def music():
 def dev():
     return render_template('dev.html')
 
-@views.route("/gallery")
-def gallery():
-    return render_template('gallery.html')
+@views.route("/projects")
+def projects():
+    return render_template('projects.html')
+
+# Context Processors
+
+@views.context_processor
+def inject_now():
+    return dict(now=datetime.utcnow())
