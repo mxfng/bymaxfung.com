@@ -1,0 +1,28 @@
+@font-face{
+    font-family: qirate;
+    src: url('../fonts/Qirate.otf');
+}
+
+body {
+    font-family: qirate;
+    font-size: 18px;
+}
+
+.content {
+    max-width: 1000px;
+    margin: auto;
+}
+
+/* Navbar */
+
+.navbar .navbar-nav {
+    text-transform: lowercase;
+}
+
+.navbar-nav > li{
+    margin-right: 20px;
+}
+
+.navbar-brand {
+    margin-right: 40px;
+}
