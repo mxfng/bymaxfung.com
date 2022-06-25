@@ -1,14 +1,53 @@
 {% extends "base.html" %}
 
 {% block head %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/about.css') }}">
+{% endblock %}
+
+{% block title %}
 About
 {% endblock %}
 
 {% block content %}
-<p>
-    Max Fung is a singer, songwriter, record producer, software developer, and graphic designer capable of making strong aesthetic statements, lush auditory soundscapes, and curated digital experiences. From audio to video, canvas to codebase, Max uses a wide range of mediums as expressions of his passion for building things from scratch and mastering the flow of his creative process.
-</p>
-<p>
-    Max was born in Thousand Oaks, California, U.S. on September 30, 1995 (Age 26) and currently resides and works in Los Angeles. Max’s music has garnered over 100,000 streams across more than 100 countries worldwide.
-</p>
+<main class="content tight">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-md-12 col-lg-6">
+                <img src="{{ url_for('static', filename='img/about.jpg') }}" class="img-fluid">
+            </div>
+            <div class="col-md-12 col-lg-6 ">
+                <div class="row text">
+                    <table class="table quick-facts">
+                        <tbody>
+                            <tr>
+                                <td>Birth Name</td>
+                                <td class="text-end">Max Henry Fung</td>
+                            </tr>
+                            <tr>
+                                <td>Born</td>
+                                <td class="text-end">September 30, 1995 (Age {{ age }})</td>
+                            </tr>
+                            <tr>
+                                <td>Hometown</td>
+                                <td class="text-end">Thousand Oaks, California, U.S.</td>
+                            </tr>
+                            <tr>
+                                <td>Located In</td>
+                                <td class="text-end">Los Angeles, California, U.S.</td>
+                            </tr>
+                            <tr>
+                                <td>Occupation</td>
+                                <td class="text-end">Musician, Developer, Creative</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="row text">
+                    <p>Max Fung is a singer, songwriter, record producer, software developer, and graphic designer renowned for making strong aesthetic statements, lush auditory soundscapes, and curated digital experiences. From audio to video, canvas to codebase, Max uses a wide range of mediums as expressions of his passion for producing memorable experiences with his audience.</p>
+                    <p>Max was born in Thousand Oaks, California, U.S. in 1995 and currently resides and works in Los Angeles. Max’s music has garnered over 100,000 streams across more than 100 countries worldwide, and his code has been deployed to support the logistics operations of some of the world's largest retailers.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
 {% endblock %}
