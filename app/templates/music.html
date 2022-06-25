@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 
 {% block head %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/music.css') }}">
 {% endblock %}
 
 {% block title %}
@@ -9,6 +10,15 @@ Music
 
 {% block content %}
 <div class="content attached tight">
-    Music
+    <div class="d-flex flex-column justify-content-center">
+        <div id="blue-moon" class="container album-container">
+            <img src="{{ url_for('static', filename='img/albumart/Blue Moon Cover.jpg') }}" width=400></img>
+            <h1>Blue Moon (2020)</h1>
+        </div>
+        <div id="lotus" class="container album-container">
+            <img src="{{ url_for('static', filename='img/albumart/Lotus Cover.jpg') }}" width=400></img>
+            <h1>Lotus (2019)</h1>
+        </div>
+    </div>
 </div>
 {% endblock %}
