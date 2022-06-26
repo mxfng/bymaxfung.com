@@ -9,15 +9,13 @@ Music
 {% endblock %}
 
 {% block content %}
-<div class="content attached tight">
-    <div class="d-flex flex-column justify-content-center">
-        <div id="blue-moon" class="container album-container">
-            <img src="{{ url_for('static', filename='img/albumart/Blue Moon Cover.jpg') }}" width=400></img>
-            <h1>Blue Moon (2020)</h1>
+<div class="content">
+    <div class="d-flex flex-column album-grid">
+        <div id="blue-moon" class="album-container">
+            <img src="{{ url_for('static', filename='img/albumart/Blue Moon Cover.jpg') }}" class="img-fluid"></img>
         </div>
-        <div id="lotus" class="container album-container">
-            <img src="{{ url_for('static', filename='img/albumart/Lotus Cover.jpg') }}" width=400></img>
-            <h1>Lotus (2019)</h1>
+        <div id="lotus" class="album-container">
+            <img src="{{ url_for('static', filename='img/albumart/Lotus Cover.jpg') }}" class="img-fluid"></img>
         </div>
     </div>
 </div>

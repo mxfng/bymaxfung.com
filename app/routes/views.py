@@ -1,12 +1,8 @@
 from flask import Blueprint, render_template
-from datetime import datetime, date
+from datetime import date
 from ..lib import times
 
 views = Blueprint("views", __name__)
-
-@views.context_processor
-def inject_now():
-    return dict(now=datetime.utcnow())
 
 @views.route("/")
 @views.route("/home")
@@ -19,7 +15,7 @@ def about():
 
 @views.context_processor
 def calculate_age():
-    return dict(age=times.getCurrentAge(date.fromisoformat('1995-09-30')))
+    return dict(age=times.agenow('1995-09-30'))
 
 @views.route("/contact")
 def contact():

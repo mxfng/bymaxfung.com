@@ -3,10 +3,6 @@ from datetime import datetime
 
 music = Blueprint("music", __name__)
 
-@music.context_processor
-def inject_now():
-    return dict(now=datetime.utcnow())
-
 @music.route("/music")
 def view_music():
     return render_template('music.html')
