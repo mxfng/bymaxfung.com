@@ -1,14 +1,42 @@
-.album-list {
+.music-grid {
+    display: flex;
+    width: 100%;
     margin: auto;
 }
 
-.album-container {
-    margin-left: auto;
-    margin-right: auto;
-    max-width: 100%;
-    height: auto;
+.music-info {
+    padding-top: 5px;
 }
 
-.album-container > p {
-    text-transform: capitalize;
+@media (min-width: 992px) {
+    .music-tile {
+        max-width: 460px;
+        padding: 10px;
+    }
+}
+
+@media (max-width: 991.98px) {
+    .music-tile {
+        max-width: 420px;
+        padding: 10px;
+        margin: auto;
+    }
+}
+
+/* Fade in musics by Scroll (Mobile) */
+
+.music-tile {
+    opacity: 0.3;
+    -webkit-transition-delay: .6s;
+    -o-transition-delay: .6s;
+    transition-delay: .6s;
+    -webkit-transition: .8s;
+    -o-transition: .8s;
+    transition: .8s;
+}
+.bottom-right.inView {
+    opacity: 1;
+}
+.inView {
+    opacity: 1;
 }

@@ -10,13 +10,53 @@ Music
 
 {% block content %}
 <div class="content">
-    <div class="d-flex flex-column album-grid">
-        <div id="blue-moon" class="album-container">
+    <div class="music-grid row">
+        <div id="blue-moon" class="music-tile col-xl">
             <img src="{{ url_for('static', filename='img/albumart/Blue Moon Cover.jpg') }}" class="img-fluid"></img>
+            <div class="music-info">
+                <div class="row">
+                    <div class="col">
+                        Blue Moon
+                    </div>
+                    <div class="col-auto">
+                        Extended Play
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        2020
+                    </div>
+                    <div class="col-auto">
+                        18:00
+                    </div>
+                </div>
+            </div>
         </div>
-        <div id="lotus" class="album-container">
+        <div id="lotus" class="music-tile col-xl">
             <img src="{{ url_for('static', filename='img/albumart/Lotus Cover.jpg') }}" class="img-fluid"></img>
+            <div class="music-info">
+                <div class="row">
+                    <div class="col">
+                        Lotus
+                    </div>
+                    <div class="col-auto">
+                        Extended Play
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        2019
+                    </div>
+                    <div class="col-auto">
+                        13:15
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<script type="text/javascript" src="{{ url_for('static', filename='js/fadeOnScroll.js') }}"></script>
+
 {% endblock %}
