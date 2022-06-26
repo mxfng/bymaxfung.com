@@ -154,6 +154,10 @@ body {
         margin: auto;
     }
 }
+
+.hidden {
+    visibility: hidden;
+}
   
 
 /* Content
@@ -187,17 +191,7 @@ body {
 
 /* Overlay */
 
-#pageOverlay{
-    position: fixed;
-    z-index: 99999;
-    top:0; left:0; right:0; bottom:0;
-    background: #fff;
-    transition: 2s;       /* transition timing */
-}
-#pageOverlay.hide{      /* JS-add this class on DOM ready or window load */
-   visibility: hidden;
-   opacity: 0;
-}
+
 
 
 /* Footer
