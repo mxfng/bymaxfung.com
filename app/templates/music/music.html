@@ -32,12 +32,6 @@ Music
         </div>
     </div>
     <div id="lotus" class="music-tile col-xl">
-        <script type="text/javascript">
-            // Guardrail to keep 2nd music tile out of focus on page load
-            let elementsArray = document.querySelectorAll(".music-tile");
-            var elem = elementsArray[1]
-            elem.classList.remove("inView");
-        </script>
         <img src="{{ url_for('static', filename='img/albumart/Lotus Cover.jpg') }}" class="img-fluid"></img>
         <div class="music-info">
             <div class="row">
