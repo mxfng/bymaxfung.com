@@ -66,6 +66,7 @@
     #back-button {
         width: 50px;
         height: 26px;
+        background-color: transparent;
     }
 
 </style>
@@ -119,10 +120,10 @@
             <div class="col"><a id="back-button" class="nav-link" href="/music">Back</a></div>
         </div>
         <div id="disc-nav" class="row justify-content-center top-pad">
-            <div class="col"><a class="nav-link">Stream:</a></div>
-            <div class="col"><a class="nav-link" href="#blog"><i class="bi-spotify"></i></a></div>
-            <div class="col"><a class="nav-link" href="#blog"><i class="bi-apple"></i></a></div>
-            <div class="col"><a class="nav-link" href="#blog"><i class="bi-youtube"></i></a></div>
+            <div class="col"><a class="nav-link" href="{% block linkStream %}{% endblock %}" target="_blank">Stream:</a></div>
+            <div class="col"><a class="nav-link" href="{% block linkSpotify %}{% endblock %}" target="_blank"><i class="bi-spotify"></i></a></div>
+            <div class="col"><a class="nav-link" href="{% block linkApple %}{% endblock %}" target="_blank"><i class="bi-apple"></i></a></div>
+            <div class="col"><a class="nav-link" href="{% block linkYouTube %}{% endblock %}" target="_blank"><i class="bi-youtube"></i></a></div>
         </div>
     </div>
 </div>
