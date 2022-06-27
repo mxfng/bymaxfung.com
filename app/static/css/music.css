@@ -62,10 +62,10 @@
 
 /* Background Transition */
 
-.disc-background-fade {
-    -webkit-transition: background 1.5s;
-    -moz-transition: background 1.5s;
-    -ms-transition: background 1.5s;
-    -o-transition: background 1.5s;
-    transition: background 1.5s;
+.disc-color-transition {
+    -webkit-transition: background 1.5s, color 1.5s, opacity 1.5s;
+    -moz-transition: background 1.5s, color 1.5s, opacity 1.5s;
+    -ms-transition: background 1.5s, color 1.5s, opacity 1.5s;
+    -o-transition: background 1.5s, color 1.5s, opacity 1.5s;
+    transition: background 1.5s, color 1.5s, opacity 1.5s;
 }

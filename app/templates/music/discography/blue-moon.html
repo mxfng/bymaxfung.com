@@ -1,71 +1,22 @@
-{% extends "base.html" %}
+{% extends "music/discography/disc-view.html" %}
 
-{% block head %}
-<link rel="stylesheet" href="{{ url_for('static', filename='css/music.css') }}">
+{% block title %}Blue Moon{% endblock %}
+
+{% block backgroundColor %} '#4C7CCC' {% endblock %}
+{% block textColor %} '#333037' {% endblock %}
+
+{% block discTitle %} Blue Moon {% endblock %}
+
+{% block discArt %} {{ url_for('static', filename='img/albumart/Blue Moon Cover.jpg') }} {% endblock %}
+
+{% block discDescription %}
+The feelings of loneliness and solitude in the nighttime have always pushed me to create more music.
+Every song on this project, for me, constitutes some deep form of self-reflection I've made under the veil of night.
+I wanted to reveal myself with rawness and vulnerability in my art.
+There's something maddening about night's isolation and sensory depravation.
+Creativity can be fickle and elusive, and it can hit you during the oddest times.
+For me, it tends to unload all at once, once in a Blue Moon.
 {% endblock %}
 
-{% block title %}
-Dev
-{% endblock %}
-
-{% block content %}
-<script>
-    backgroundColor = '#6e8fc2';
-    var headerSection = document.getElementsByClassName('header-section')[0];
-    document.body.classList.add('disc-background-fade');
-    headerSection.classList.add('disc-background-fade');
-    document.body.style.background = backgroundColor;
-    headerSection.style.background = backgroundColor;
-</script>
-<div class="container" style="
-    width: 100%;
-    position: relative;
-    max-width: 800px;">
-    <div id="disc-nav-arrows" class="nav-arrows d-none d-lg-block"; style="position: absolute; width: 50px; left: -50px;">
-        <p>Up</p>
-        <p>Down</p>
-    </div>
-    <div id="disc-header" class="row" style="max-width: 800px; margin: auto;">
-        <p>Blue Moon</p>
-        <p>overview videos photos tracklist - spotify apple youtube</p>
-    </div>
-    <div id="disc-body" class="row container" style=" margin: auto; max-width: 800px;">
-        <div id="disc-art" class="row" style="margin: auto;">
-            <img src="{{ url_for('static', filename='img/albumart/Blue Moon Cover.jpg') }}" class="img-fluid" style="padding: 0;"></img>
-        </div>
-        <div id="disc-description" class="row" style="margin: auto;">
-            The feelings of loneliness and solitude in the nighttime have always pushed me to create more music.
-            Every song on this project, for me, constitutes some deep form of self-reflection I've made under the veil of night.
-            I wanted to reveal myself with rawness and vulnerability in my art.
-            There's something maddening about night's isolation and sensory depravation.
-            Creativity can be fickle and elusive, and it can hit you during the oddest times.
-            For me, it tends to unload all at once, once in a Blue Moon.
-        </div>
-        <div id="disc-tracks" class="row" style="margin: auto;">
-            <table class="table text-muted">
-                <tbody>
-                    <tr>
-                        <td>Smoke</td>
-                        <td class="text-end">02:58</td>
-                    </tr>
-                    <tr>
-                        <td>Angel</td>
-                        <td class="text-end">03:09</td>
-                    </tr>
-                    <tr>
-                        <td>Anything</td>
-                        <td class="text-end">03:51</td>
-                    </tr>
-                    <tr>
-                        <td>Sweet Dreams</td>
-                        <td class="text-end">03:17</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-        <div id="disc-footer-nav" class="row d-block d-lg-none" style="margin: auto;">
-            Swipe up for videos (probably a down arrow)
-        </div>
-    </div>
-</div>
+{% block discTracks %}
 {% endblock %}

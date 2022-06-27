@@ -1,0 +1,139 @@
+{% extends "base.html" %}
+
+{% block head %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/music.css') }}">
+{% endblock %}
+
+{% block title %}
+{% endblock %}
+
+{% block content %}
+<style>
+    .art-container {
+        max-width: 620px;
+    }
+
+    .top-pad {
+        padding-top: 10px;
+    }
+
+    .vertical-pad {
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+
+    #disc-body {
+        margin: auto;
+        max-height: 100%;
+    }
+
+    #disc-art {
+        margin: auto;
+        max-width: 650px;
+    }
+
+    #disc-header .row,
+    #disc-header .row .col-auto {
+        padding: 0;
+    }
+
+    #disc-header .row {
+        position: relative;
+    }
+
+    #disc-header .row .col-auto {
+        position: absolute;
+        right: 0;
+        margin-right: -12px;
+    }
+
+    #disc-description {
+        text-align: justify;
+        font-size: 14pt;
+    }
+
+    #disc-nav {
+        text-transform: lowercase;
+        font-size: 14pt;
+        margin: auto;
+    }
+
+    #disc-nav .nav-link {
+        margin: auto;
+        text-align: center;
+    }
+
+    #back-button {
+        width: 50px;
+        height: 26px;
+    }
+
+</style>
+<div id="disc-content" class="container" style="
+    margin: auto;">
+
+    <div id="disc-nav-arrows" class="nav-arrows d-none d-lg-block"; style="position: absolute; width: 50px; left: -50px;">
+        <p>Up</p>
+        <p>Down</p>
+    </div>
+    
+    <div id="disc-body" class="row container art-container">
+        <div id="disc-art" class="row" style="margin: auto; max-width: 650px;">
+            <img src='{% block discArt %}{% endblock %}' class="img-fluid" style="padding: 0;"></img>
+        </div>
+        <div id="disc-info">
+            <div id="disc-header" class="row top-pad" style="margin: auto; max-height: 100%;">
+                <div class="row">
+                    <div class="col">
+                        {% block discTitle %}{% endblock %}
+                    </div>
+                    <div class="col-auto">
+                        Extended Play
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        2020
+                    </div>
+                    <div class="col-auto">
+                        18:00
+                    </div>
+                </div>
+            </div>
+            <div id="disc-description" class="row vertical-pad" style="margin: auto; font-size: 14px;">
+                {% block discDescription %}{% endblock %}
+            </div>
+            </div>
+        <div id="disc-tracks" class="row" style="margin: auto; max-height: 100%;">
+            <table class="table text-muted">
+                <tbody>
+                    {% block discTracks %}{% endblock %}
+                </tbody>
+            </table>
+        </div>
+        <div id="disc-nav" class="row justify-content-center">
+            <div class="col"><a class="nav-link" href="#overview">Overview</a></div>
+            <div class="col"><a class="nav-link" href="#videos">Videos</a></div>
+            <div class="col"><a class="nav-link" href="#photos">Photos</a></div>
+            <div class="col"><a class="nav-link" href="#blog">Tracklist</a></div>
+            <div class="col"><a id="back-button" class="nav-link" href="/music">Back</a></div>
+        </div>
+        <div id="disc-nav" class="row justify-content-center top-pad">
+            <div class="col"><a class="nav-link">Stream:</a></div>
+            <div class="col"><a class="nav-link" href="#blog"><i class="bi-spotify"></i></a></div>
+            <div class="col"><a class="nav-link" href="#blog"><i class="bi-apple"></i></a></div>
+            <div class="col"><a class="nav-link" href="#blog"><i class="bi-youtube"></i></a></div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+{% block scripts %}
+<!-- Background Color Effect -->
+<script type="text/javascript" src="{{ url_for('static', filename='js/discViewColors.js') }}"></script>
+<script>
+    var content = document.getElementsByClassName('content')[0];
+    content.classList.add('tight');
+
+    discViewColors({% block backgroundColor %}{% endblock %},{% block textColor %}{% endblock %});
+</script>
+{% endblock %}
