@@ -5,7 +5,6 @@ window.addEventListener('scroll', fadeOnScroll);
 window.addEventListener('resize', fadeOnScroll);
 
 function fadeOnScroll() {
-    console.log(window.innerHeight);
     if (!window.AnimationEvent) { return; } // IE
 
     for (var i = 0; i < elementsArray.length; i++) {
