@@ -1,14 +1,16 @@
+// Fades off-screen elements while scrolling
 let elementsArray = document.querySelectorAll(".music-tile");
 console.log(elementsArray);
 
-window.addEventListener('scroll', fadeOnScrollUp );
-window.addEventListener('resize', fadeOnScrollUp ); 
+window.addEventListener('scroll', fadeOnScroll );
+window.addEventListener('resize', fadeOnScroll ); 
 
-function fadeOnScrollUp() {
+function fadeOnScroll() {
     for (var i = 0; i < elementsArray.length; i++) {
         var elem = elementsArray[i]
-        var distInView = elem.getBoundingClientRect().top - window.innerHeight + 250;
-        var distOutView = elem.getBoundingClientRect().bottom - 250;
+        var scrollThreshold = 350
+        var distInView = elem.getBoundingClientRect().top - window.innerHeight + scrollThreshold;
+        var distOutView = elem.getBoundingClientRect().bottom - scrollThreshold;
         if (distInView < 0) {
             elem.classList.add("inView");
         }
@@ -19,5 +21,5 @@ function fadeOnScrollUp() {
 }
 
 document.addEventListener('DOMContentLoaded', function() {
-    fadeOnScrollUp();
+    fadeOnScroll();
 });

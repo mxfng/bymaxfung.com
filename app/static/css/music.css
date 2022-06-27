@@ -16,6 +16,10 @@
 }
 
 @media (max-width: 991.98px) {
+    .music-grid {
+        overflow-x: hidden;
+    }
+
     .music-tile {
         max-width: 420px;
         padding: 10px;

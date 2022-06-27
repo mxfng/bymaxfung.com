@@ -11,12 +11,17 @@
     --primary-color: #000;
     --highlight-color: yellow;
     --muted-color: #aaa;
+
+    --app-height: 100%;    /* For mobile */
 }
 
 html, body {
     padding: 0;
     margin: 0;
     display: grid;
+    width: 100vw;
+    height: 100vh;
+    height: var(--app-height);
 }
 
 html {
@@ -30,6 +35,10 @@ body {
     font-family: qirate;
     font-size: 18px;
     min-height:100%;
+}
+
+body.noscroll {
+    overflow: hidden;
 }
 
 /* Typography
@@ -102,9 +111,7 @@ body {
         display: flex;
         flex-direction: column;
         align-content: center;
-        text-align: center !important;
-        overflow: hidden;
-        padding: var(--header-height);
+        text-align: center !important; 
     }
 
     .navbar .navbar-lists {
@@ -123,12 +130,12 @@ body {
 
     .navbar .navbar-collapse.collapsing[style*="height"] {
         opacity: 1;
-        height: 100vh !important;
+        height: var(--app-height) !important;
     }
 
     .navbar .navbar-collapse.collapsing {
         opacity: 0;
-        height: 100vh;
+        height: var(--app-height);
     }
 
     .navbar .navbar-collapse.collapse.show {
@@ -250,6 +257,10 @@ body {
 
 .content.fade {
     opacity: 0;
+}
+
+.content.hidden {
+    visibility: hidden;
 }
 
 .tight {
