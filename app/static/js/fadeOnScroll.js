@@ -2,9 +2,8 @@
 let elementsArray = document.querySelectorAll(".music-tile");
 console.log(elementsArray);
 
-window.addEventListener('scroll', fadeOnScroll );
-window.addEventListener('resize', fadeOnScroll );
-document.addEventListener('DOMContentLoaded', fadeOnScroll );
+window.addEventListener('scroll', fadeOnScroll);
+window.addEventListener('resize', fadeOnScroll);
 
 function fadeOnScroll() {
     if (!window.AnimationEvent) { return; } // IE
@@ -22,3 +21,5 @@ function fadeOnScroll() {
         }
     }
 }
+
+document.addEventListener('DOMContentLoaded', fadeOnScroll() );
