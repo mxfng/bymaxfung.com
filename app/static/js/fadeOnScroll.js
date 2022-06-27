@@ -3,9 +3,12 @@ let elementsArray = document.querySelectorAll(".music-tile");
 console.log(elementsArray);
 
 window.addEventListener('scroll', fadeOnScroll );
-window.addEventListener('resize', fadeOnScroll ); 
+window.addEventListener('resize', fadeOnScroll );
+document.addEventListener('DOMContentLoaded', fadeOnScroll );
 
 function fadeOnScroll() {
+    if (!window.AnimationEvent) { return; } // IE
+
     for (var i = 0; i < elementsArray.length; i++) {
         var elem = elementsArray[i]
         var scrollThreshold = 350
@@ -19,7 +22,3 @@ function fadeOnScroll() {
         }
     }
 }
-
-document.addEventListener('DOMContentLoaded', function() {
-    fadeOnScroll();
-});
