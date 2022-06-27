@@ -1,11 +1,11 @@
 // Fades off-screen elements while scrolling
 let elementsArray = document.querySelectorAll(".music-tile");
-console.log(elementsArray);
 
 window.addEventListener('scroll', fadeOnScroll);
 window.addEventListener('resize', fadeOnScroll);
 
 function fadeOnScroll() {
+    console.log(window.innerHeight);
     if (!window.AnimationEvent) { return; } // IE
 
     for (var i = 0; i < elementsArray.length; i++) {
@@ -23,3 +23,9 @@ function fadeOnScroll() {
 }
 
 document.addEventListener('DOMContentLoaded', fadeOnScroll() );
+
+// Hide second element on Mobile page load
+var next_elem = elementsArray[1];
+if (window.innerWidth < 768 && window.innerHeight < 914) {
+    next_elem.classList.remove("inView");
+}
