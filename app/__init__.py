@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, render_template
 from flask_sqlalchemy import SQLAlchemy
 from os import path
 from .lib import times
@@ -15,5 +15,9 @@ def create_app():
     @app.context_processor
     def inject_now():
         return dict(now=times.ptnow())
+
+    @app.errorhandler(404)
+    def page_not_found(e):
+        return render_template('404.html'), 404
 
     return app

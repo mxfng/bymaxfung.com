@@ -9,10 +9,7 @@ def view_music():
 
 @music.get("/music/<string:title>")
 def display_music(title: str):
-    return "Display music page."
-
-@music.route("/admin/music", methods=["GET", "POST"])
-def create_music():
-    if request.method == "POST":
-        pass
-    return "Create music page."
+    try:
+        return render_template(f'music/discography/{title}.html')
+    except:
+        return render_template('404.html')
