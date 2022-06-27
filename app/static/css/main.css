@@ -14,7 +14,7 @@
 
     --app-height: 100%;    /* For mobile */
 
-    --pixel-line: repeating-linear-gradient(to right,var(--muted-color) 0,var(--muted-color) 3px,transparent 3px,transparent 7px);
+    --pixel-line: repeating-linear-gradient(to right,var(--primary-color) 0,var(--primary-color) 3px,transparent 3px,transparent 7px);
 }
 
 .debug {
@@ -45,43 +45,6 @@ body {
 
 body.noscroll {
     overflow: hidden;
-}
-
-/* Link underline effect */
-
-/* Underline styles */
-a {
-    position: relative;
-    padding: 0.2em 0;
-}
-
-/* Fade in */
-.nav-item a::after {
-    content: '';
-    position: absolute;
-    bottom: 5px;
-    left: 25%;
-    width: 50%;
-    height: 3px;
-    background: var(--pixel-line);
-    opacity: 0;
-    transition: opacity 600ms, transform 800ms;
-}
-
-.nav-item a:hover::after,
-a:focus::after {
-    opacity: 1;
-}
-
-a::after {
-  opacity: 1;
-  transform: scale(0);
-  transform-origin: center;
-}
-
-a:hover::after,
-a:focus::after{
-  transform: scale(1);
 }
 
 
@@ -237,7 +200,7 @@ a:focus::after{
     width: 100%;
     background: var(--pixel-line);
     border-radius: 0;
-    opacity: 1;
+    opacity: 0.4;
     left: 0;
     -webkit-transform: rotate(0deg);
     -moz-transform: rotate(0deg);
@@ -255,6 +218,10 @@ a:focus::after{
   
   .navbar-icon span:nth-child(2),.navbar-icon span:nth-child(3) {
     top: 10px;
+  }
+
+  .navbar-icon span:nth-child(3) {
+    opacity: 0;
   }
   
   .navbar-icon span:nth-child(4) {
@@ -275,6 +242,7 @@ a:focus::after{
   }
   
   .navbar-icon.open span:nth-child(3) {
+    opacity: 0.4;
     -webkit-transform: rotate(-45deg);
     -moz-transform: rotate(-45deg);
     -o-transform: rotate(-45deg);
@@ -282,7 +250,7 @@ a:focus::after{
   }
   
   .navbar-icon.open span:nth-child(4) {
-    top: 18px;
+    top: 20px;
     width: 0%;
     left: 50%;
   }
