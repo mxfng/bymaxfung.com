@@ -2,8 +2,6 @@
 
 {% block head %}
 <link rel="stylesheet" href="{{ url_for('static', filename='css/music.css') }}">
-<script defer type="text/javascript" src="{{ url_for('static', filename='js/fadeOnScroll.js') }}"></script>
-<script defer type="text/javascript" src="{{ url_for('static', filename='js/musicTile.js') }}"></script>
 {% endblock %}
 
 {% block title %}
@@ -56,4 +54,9 @@ Music
         </div>
     </div>
 </div>
+{% endblock %}
+
+{% block scripts %}
+<script defer type="text/javascript" src="{{ url_for('static', filename='js/fadeOnScroll.js') }}"></script>
+<script defer type="text/javascript" src="{{ url_for('static', filename='js/musicTile.js') }}"></script>
 {% endblock %}

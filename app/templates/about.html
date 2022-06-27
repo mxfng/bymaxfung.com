@@ -9,10 +9,6 @@ About
 {% endblock %}
 
 {% block content %}
-<script>
-    var content = document.getElementsByClassName('content')[0];
-    content.classList.add('tight');
-</script>
 <div class="container">
     <div class="row align-items-center">
         <div class="col-md-12 col-lg-6">
@@ -59,4 +55,11 @@ About
         </div>
     </div>
 </div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+    var content = document.getElementsByClassName('content')[0];
+    content.classList.add('tight');
+</script>
 {% endblock %}

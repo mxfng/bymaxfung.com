@@ -9,7 +9,4 @@ def view_music():
 
 @music.get("/music/<string:title>")
 def display_music(title: str):
-    try:
-        return render_template(f'music/discography/{title}.html')
-    except:
-        return render_template('404.html')
+    return render_template(f'music/discography/{title}.html')
