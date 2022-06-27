@@ -3,8 +3,8 @@
 
 :root {
     --background-color: #fff;
-    --max-tight-width: 1100px;
-    --max-page-width: 1800px;
+    --max-tight-width: 1120px;
+    --max-page-width: 1920px;
     --header-height: 66px;
     --footer-height: 60px;
 
@@ -253,6 +253,7 @@ body.noscroll {
     opacity: 0;
     transition-duration: 0.3s;
     transition-property: opacity;
+    padding: 10px;
 }
 
 .content.fade {
@@ -274,6 +275,13 @@ body.noscroll {
 
 .text {
     padding: 10px;
+}
+
+@media (min-width: 992px) {
+    .content {
+        padding-left: 60px;
+        padding-right: 60px;
+    }
 }
 
 /* Footer
