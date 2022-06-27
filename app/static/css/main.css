@@ -328,7 +328,6 @@ a:focus::after{
 ------------------------------------------ */
 
 .footer {
-    background-color: var(--background-color);
     font-size: 16px;
     text-transform: uppercase;
     line-height: var(--footer-height);
