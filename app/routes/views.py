@@ -1,6 +1,6 @@
 from flask import Blueprint, render_template
 from datetime import date
-from ..lib import times
+from ..lib import times, random_facts
 
 views = Blueprint("views", __name__)
 
@@ -11,7 +11,7 @@ def home():
 
 @views.route("/about")
 def about():
-    return render_template('about.html')
+    return render_template('about.html', fact=random_facts.random_fact())
 
 @views.context_processor
 def calculate_age():
