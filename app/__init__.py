@@ -1,7 +1,8 @@
-from flask import Flask, render_template, send_from_directory
+from flask import Flask, render_template, send_from_directory, url_for
 from flask_sqlalchemy import SQLAlchemy
-from os import path
+from os import path, listdir
 from .lib import times
+import random
 
 def create_app():
     app = Flask(__name__)
@@ -18,7 +19,10 @@ def create_app():
 
     @app.errorhandler(404)
     def page_not_found(e):
-        return render_template('404.html'), 404
+        def get_meme():
+            choice = random.choice(listdir(path.join(app.root_path, 'static/img/meme')))
+            return url_for('static', filename='img/meme/' + choice)
+        return render_template('404.html', value = get_meme()), 404
 
     
     @app.route('/favicon.ico')
