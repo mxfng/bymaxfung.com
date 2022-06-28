@@ -1,4 +1,4 @@
-from flask import Blueprint, request, render_template
+from flask import Blueprint, render_template, abort
 from datetime import datetime
 
 music = Blueprint("music", __name__)
@@ -12,4 +12,4 @@ def display_music(title: str):
     try:
         return render_template(f'music/discography/{title}.html')
     except:
-        return render_template('404.html')
+        abort(404)
