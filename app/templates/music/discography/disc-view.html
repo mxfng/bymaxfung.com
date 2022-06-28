@@ -9,8 +9,13 @@
 
 {% block content %}
 <style>
+    .body {
+        overflow: hidden;
+        padding: 0;
+    }
+
     .art-container {
-        max-width: 620px;
+        max-width: 520px;
     }
 
     .top-pad {
@@ -22,14 +27,21 @@
         padding-bottom: 10px;
     }
 
+    #disc-content {
+        width: auto;
+    }
+
     #disc-body {
         margin: auto;
         max-height: 100%;
+        padding-left: 0;
+        padding-right: 0;
     }
 
     #disc-art {
         margin: auto;
-        max-width: 650px;
+        padding-left: 10px;
+        padding-right: 10px;
     }
 
     #disc-header .row,
@@ -50,6 +62,8 @@
     #disc-description {
         text-align: justify;
         font-size: 14pt;
+        padding-left: 0;
+        padding-right: 0;
     }
 
     #disc-nav {
@@ -69,17 +83,16 @@
         background-color: transparent;
     }
 
-</style>
-<div id="disc-content" class="container" style="
-    margin: auto;">
+    @media (max-width: 991.98px) {
+        #disc-nav .nav-link {
+            padding-bottom: 15px;
+        }
+    }
 
-    <div id="disc-nav-arrows" class="nav-arrows d-none d-lg-block"; style="position: absolute; width: 50px; left: -50px;">
-        <p>Up</p>
-        <p>Down</p>
-    </div>
-    
+</style>
+<div id="disc-content" class="container">
     <div id="disc-body" class="row container art-container">
-        <div id="disc-art" class="row" style="margin: auto; max-width: 650px;">
+        <div id="disc-art" class="row">
             <img src='{% block discArt %}{% endblock %}' class="img-fluid" style="padding: 0;"></img>
         </div>
         <div id="disc-info">
@@ -113,10 +126,9 @@
             </table>
         </div>
         <div id="disc-nav" class="row justify-content-center">
-            <div class="col"><a class="nav-link" href="#overview">Overview</a></div>
-            <div class="col"><a class="nav-link" href="#videos">Videos</a></div>
-            <div class="col"><a class="nav-link" href="#photos">Photos</a></div>
             <div class="col"><a class="nav-link" href="#blog">Tracklist</a></div>
+            <div class="col"><a class="nav-link" href="#photos">Photos</a></div>
+            <div class="col"><a class="nav-link" href="#videos">Videos</a></div>
             <div class="col"><a id="back-button" class="nav-link" href="/music">Back</a></div>
         </div>
         <div id="disc-nav" class="row justify-content-center top-pad">

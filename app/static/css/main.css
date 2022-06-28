@@ -37,7 +37,7 @@ html {
 body {
     grid-template-columns: 1fr;
     grid-template-rows: auto 1fr var(--footer-height);
-    row-gap: 15px;
+    row-gap: 0;
     font-family: qirate;
     font-size: 18px;
     min-height:100%;
