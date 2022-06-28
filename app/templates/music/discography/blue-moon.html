@@ -5,7 +5,32 @@
 {% block backgroundColor %} '#4C7CCC' {% endblock %}
 {% block textColor %} '#333037' {% endblock %}
 
+{% block graphic %}
+<img id="disc-graphic" src="{{ url_for('static', filename='img/albumart/blue-moon-graphic.png') }}" class="d-none d-md-block" style="left:-180px; opacity: 0.9; height: 600px;"></img>
+{% endblock %}
+
+{% block customAnimation %}
+<style>
+/* Graphic Animation */
+@keyframes disc-graphic {
+    from {left: 100px; opacity: 0; transform: rotate(45deg);} 
+    to{left:-180px; opacity: 0.9; transform: rotate(0deg);} 
+}
+@-moz-keyframes disc-graphic {
+    from {left: 100px; opacity: 0; -moz-transform: rotate(45deg);} 
+    to{left:-180px; opacity: 0.9; -moz-transform: rotate(0deg);} 
+}
+@-webkit-keyframes disc-graphic {
+    from {left: 100px; opacity: 0; -webkit-transform: rotate(45deg);} 
+    to{left:-180px; opacity: 0.9; -webkit-transform: rotate(0deg);} 
+}
+</style>
+{% endblock %}
+
 {% block discTitle %} Blue Moon {% endblock %}
+{% block discType %} Extended Play {% endblock %}
+{% block discDate %} 12/11/2020 {% endblock %}
+{% block discRuntime %} 18:00 {% endblock %}
 
 {% block discArt %} {{ url_for('static', filename='img/albumart/Blue Moon Cover.jpg') }} {% endblock %}
 

@@ -27,6 +27,14 @@
         padding-bottom: 10px;
     }
 
+    #disc-graphic {
+        position: absolute;
+        margin: auto;
+        height: 50%;
+        z-index: 900;
+        animation: disc-graphic 5s;
+    }​
+
     #disc-content {
         width: auto;
     }
@@ -38,10 +46,32 @@
         padding-right: 0;
     }
 
-    #disc-art {
+    #disc-art-scene {
         margin: auto;
-        padding-left: 10px;
-        padding-right: 10px;
+        z-index: 950;
+        perspective: 600px;
+    }
+
+    #disc-art {
+        width: 100%;
+        height: 500px;
+        position: relative;
+        transition: transform 1s;
+        transform-style: preserve-3d;
+    }
+
+    .disc-art-face {
+        position: absolute;
+        width: 100%;
+        backface-visibility: hidden;
+    }
+
+    .disc-art-back {
+        transform: rotateY( 180deg );
+    }
+
+    #disc-art.is-flipped {
+        transform: rotateY(180deg);
     }
 
     #disc-header .row,
@@ -90,52 +120,59 @@
     }
 
 </style>
-<div id="disc-content" class="container">
-    <div id="disc-body" class="row container art-container">
-        <div id="disc-art" class="row">
-            <img src='{% block discArt %}{% endblock %}' class="img-fluid" style="padding: 0;"></img>
-        </div>
-        <div id="disc-info">
-            <div id="disc-header" class="row top-pad" style="margin: auto; max-height: 100%;">
-                <div class="row">
-                    <div class="col">
-                        {% block discTitle %}{% endblock %}
-                    </div>
-                    <div class="col-auto">
-                        Extended Play
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col">
-                        2020
-                    </div>
-                    <div class="col-auto">
-                        18:00
-                    </div>
+{% block customAnimation %}{% endblock %}
+<div style="position: relative;">
+    {% block graphic %}{% endblock %}
+    <div id="disc-content" class="container">
+        <div id="disc-body" class="row container art-container">
+            <div id="disc-art-scene" class="row">
+                <div id="disc-art" style="padding: 0;">
+                    <img class="disc-art-face disc-art-front" src='{% block discArt %}{% endblock %}' class="img-fluid" style="padding: 0;"></img>
+                    <img class="disc-art-face disc-art-back" src='{% block discArtBack %}{% endblock %}' class="img-fluid" style="padding: 0;"></img>
                 </div>
             </div>
-            <div id="disc-description" class="row vertical-pad" style="margin: auto; font-size: 14px;">
-                {% block discDescription %}{% endblock %}
+            <div id="disc-info">
+                <div id="disc-header" class="row top-pad" style="margin: auto; max-height: 100%;">
+                    <div class="row">
+                        <div class="col">
+                            {% block discTitle %}{% endblock %}
+                        </div>
+                        <div class="col-auto">
+                            {% block discType %}{% endblock %}
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            {% block discDate %}{% endblock %}
+                        </div>
+                        <div class="col-auto">
+                            {% block discRuntime %}{% endblock %}
+                        </div>
+                    </div>
+                </div>
+                <div id="disc-description" class="row vertical-pad" style="margin: auto; font-size: 14px;">
+                    {% block discDescription %}{% endblock %}
+                </div>
+                </div>
+            <div id="disc-tracks" class="row" style="margin: auto; max-height: 100%;">
+                <table class="table text-muted">
+                    <tbody>
+                        {% block discTracks %}{% endblock %}
+                    </tbody>
+                </table>
             </div>
+            <div id="disc-nav" class="row justify-content-center">
+                <div class="col"><a class="nav-link" href="#blog">Tracklist</a></div>
+                <div class="col"><a class="nav-link" href="#photos">Photos</a></div>
+                <div class="col"><a class="nav-link" href="#videos">Videos</a></div>
+                <div class="col"><a id="back-button" class="nav-link" href="/music">Back</a></div>
             </div>
-        <div id="disc-tracks" class="row" style="margin: auto; max-height: 100%;">
-            <table class="table text-muted">
-                <tbody>
-                    {% block discTracks %}{% endblock %}
-                </tbody>
-            </table>
-        </div>
-        <div id="disc-nav" class="row justify-content-center">
-            <div class="col"><a class="nav-link" href="#blog">Tracklist</a></div>
-            <div class="col"><a class="nav-link" href="#photos">Photos</a></div>
-            <div class="col"><a class="nav-link" href="#videos">Videos</a></div>
-            <div class="col"><a id="back-button" class="nav-link" href="/music">Back</a></div>
-        </div>
-        <div id="disc-nav" class="row justify-content-center top-pad">
-            <div class="col"><a class="nav-link" href="{% block linkStream %}{% endblock %}" target="_blank">Stream:</a></div>
-            <div class="col"><a class="nav-link" href="{% block linkSpotify %}{% endblock %}" target="_blank"><i class="bi-spotify"></i></a></div>
-            <div class="col"><a class="nav-link" href="{% block linkApple %}{% endblock %}" target="_blank"><i class="bi-apple"></i></a></div>
-            <div class="col"><a class="nav-link" href="{% block linkYouTube %}{% endblock %}" target="_blank"><i class="bi-youtube"></i></a></div>
+            <div id="disc-nav" class="row justify-content-center top-pad">
+                <div class="col"><a class="nav-link" href="{% block linkStream %}{% endblock %}" target="_blank">Stream:</a></div>
+                <div class="col"><a class="nav-link" href="{% block linkSpotify %}{% endblock %}" target="_blank"><i class="bi-spotify"></i></a></div>
+                <div class="col"><a class="nav-link" href="{% block linkApple %}{% endblock %}" target="_blank"><i class="bi-apple"></i></a></div>
+                <div class="col"><a class="nav-link" href="{% block linkYouTube %}{% endblock %}" target="_blank"><i class="bi-youtube"></i></a></div>
+            </div>
         </div>
     </div>
 </div>
@@ -143,6 +180,7 @@
 {% block scripts %}
 <!-- Background Color Effect -->
 <script type="text/javascript" src="{{ url_for('static', filename='js/discViewColors.js') }}"></script>
+<script type="text/javascript" src="{{ url_for('static', filename='js/discArtFlip.js') }}"></script>
 <script>
     var content = document.getElementsByClassName('content')[0];
     content.classList.add('tight');

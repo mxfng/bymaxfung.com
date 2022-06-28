@@ -5,9 +5,35 @@
 {% block backgroundColor %} '#5D623E' {% endblock %}
 {% block textColor %} '#BFB57F' {% endblock %}
 
+{% block graphic %}
+<img id="disc-graphic" src="{{ url_for('static', filename='img/albumart/lotus-graphic.png') }}" class="d-none d-md-block" style="left:-400px; opacity: 0.8;"></img>
+{% endblock %}
+
+{% block customAnimation %}
+<style>
+/* Graphic Animation */
+@keyframes disc-graphic {
+    from {left: 100px; opacity: 0; transform: rotate(90deg);} 
+    to{left:-400px; opacity: 0.9; transform: rotate(0deg);} 
+}
+@-moz-keyframes disc-graphic {
+    from {left: 100px; opacity: 0; -moz-transform: rotate(90deg);} 
+    to{left:-400px; opacity: 0.9; -moz-transform: rotate(0deg);} 
+}
+@-webkit-keyframes disc-graphic {
+    from {left: 100px; opacity: 0; -webkit-transform: rotate(90deg);} 
+    to{left:-400px; opacity: 0.9; -webkit-transform: rotate(0deg);} 
+}
+</style>
+{% endblock %}
+
 {% block discTitle %} Lotus {% endblock %}
+{% block discType %} Extended Play {% endblock %}
+{% block discDate %} 07/04/2019 {% endblock %}
+{% block discRuntime %} 13:15 {% endblock %}
 
 {% block discArt %} {{ url_for('static', filename='img/albumart/Lotus Cover.jpg') }} {% endblock %}
+{% block discArtBack %} {{ url_for('static', filename='img/albumart/Lotus Cover Back.jpg') }} {% endblock %}
 
 {% block discDescription %}
 One evening, during meditation, my mother envisioned herself diving into a lotus pond and retrieving a child from the mud. Soon after this, she was gifted her first baby, and to this day swears that she found my soul in that pond.
