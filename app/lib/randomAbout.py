@@ -1,5 +1,43 @@
+'''
+Static data structure for dynamic info on the About page.
+
+Stores data in tuples which can be accessed via the "random" functions.
+'''
+
 from random import choice
 
+# Summon random action object
+def random_action():
+    return choice(random_actions)
+
+# Summon random fact object
+def random_fact():
+    return choice(random_facts)
+
+# random-action dataset
+# "watch me ______ here"
+random_actions = (
+    'play the tuba',
+    'climb Mt. Everest',
+    'base jump',
+    'address the haters',
+    'sing badly',
+    'bake a cake',
+    'get icy',
+    'swim in jello',
+    '360 no-scope',
+    'snore in bed',
+    'crochet',
+    'critique capitalism',
+    'wear two left shoes',
+    'give up on trying',
+    'ride a unicycle',
+    'fly a helicopter',
+    'go to therapy',
+    'cry profusely'
+)
+
+# random-fact dataset
 random_facts = (
     (
         'Favorite Food',
@@ -34,7 +72,7 @@ random_facts = (
         'Python'
     ),
     (
-        'My Middle Name',
+        'Middle Name',
         'Henry'
     ),
     (
@@ -94,31 +132,3 @@ random_facts = (
         'I have none'
     )
 )
-
-# watch me ______ here
-random_actions = (
-    'play the tuba',
-    'climb Mt. Everest',
-    'base jump',
-    'address the haters',
-    'sing badly',
-    'bake a cake',
-    'get icy',
-    'swim in jello',
-    '360 no-scope',
-    'snore in bed',
-    'crochet',
-    'critique capitalism',
-    'wear two left shoes',
-    'give up on trying',
-    'ride a unicycle',
-    'fly a helicopter',
-    'go to therapy',
-    'cry profusely'
-)
-
-def random_fact():
-    return choice(random_facts)
-
-def random_action():
-    return choice(random_actions)
