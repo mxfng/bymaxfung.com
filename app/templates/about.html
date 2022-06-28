@@ -9,15 +9,132 @@ About
 {% endblock %}
 
 {% block content %}
-<div class="container">
-    <div class="row align-items-center">
-        <div class="col-md-12 col-lg-6">
+<style>
+    .pixelgrid {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        display: grid;
+        grid-template-columns: auto auto auto auto auto auto;
+        overflow: hidden;
+    }
+
+    .pixelgrid .sm {
+        grid-template-rows: auto auto auto auto auto auto;
+    }
+
+    .pixelgrid .lg {
+        grid-template-rows: auto auto auto auto auto auto auto auto;
+    }
+
+    @keyframes flickerAnimation {
+        0%   { opacity:0.4; }
+        50%  { opacity:0; }
+        100% { opacity:0.4; }
+    }
+        @-o-keyframes flickerAnimation{
+        0%   { opacity:0.4; }
+        50%  { opacity:0; }
+        100% { opacity:0.4; }
+    }
+        @-moz-keyframes flickerAnimation{
+        0%   { opacity:0.4; }
+        50%  { opacity:0; }
+        100% { opacity:0.4; }
+    }
+        @-webkit-keyframes flickerAnimation{
+        0%   { opacity:0.4; }
+        50%  { opacity:0; }
+        100% { opacity:0.4; }
+    }
+
+    {% for n in range(1,49) %}
+        {% if n not in [
+            1,2,6,7,15,16,17,18,20,21,22,23,25,26,27,28,29,33,34,43,48
+        ] %}
+            {% set duration = range(70,101) | random/10 %}
+            .pixelgrid .pixelsquare:nth-child({{ n }}) {
+                -webkit-animation: flickerAnimation {{ duration }}s infinite;
+                -moz-animation: flickerAnimation {{ duration }}s infinite;
+                -o-animation: flickerAnimation {{ duration }}s infinite;
+                animation: flickerAnimation {{ duration }}s infinite;
+            }
+        {% endif %}
+    {% endfor %}
+
+    .pixelsquare {
+        background: white;
+        animation-iteration-count: infinite;
+    }
+
+    @media (min-width: 992px) {
+        .sm {
+            display: none;
+        }
+    }
+
+    @media (max-width: 991.99px) {
+        .lg {
+            display: none;
+        }
+    }
+</style>
+<div class="container" style="margin: auto;">
+    <div class="row align-items-center" style="margin: auto;">
+        <div class="col-md-12 col-lg-6" style="
+            margin: auto;
+            position: relative;
+            padding: 0;
+            width: auto;"
+        >
+            <div class="pixelgrid lg">
+                {% for i in range(1,9) %}
+                    {% for j in range (1,7) %}
+                        <div
+                            id="lg {{ i }}{{ j }}"
+                            class="pixelsquare"
+                            style="
+                                grid-row: {{ i }};
+                                grid-column: {{ j }};
+                                {% if i not in [1, 2, 7, 8] and j not in [1,2,6] %}
+                                    opacity: 0;
+                                {% else %}
+                                    opacity: {{ range(0,101) | random/100 }};
+                                {% endif %}
+                                "
+                        >
+                        </div>
+                    {% endfor %}
+                {% endfor %}
+            </div>
+            <div class="pixelgrid sm">
+                {% for i in range(1,7) %}
+                    {% for j in range (1,7) %}
+                        <div
+                            id="sm {{ i }}{{ j }}"
+                            class="pixelsquare"
+                            style="
+                                grid-row: {{ i }};
+                                grid-column: {{ j }};
+                                {% if i not in [1, 5, 6] and j not in [1,2,6] %}
+                                    opacity: 0;
+                                {% else %}
+                                    opacity: {{ range(0,101) | random/100 }};
+                                {% endif %}
+                                "
+                        >
+                        </div>
+                    {% endfor %}
+                {% endfor %}
+            </div>
             <picture>
-                <source srcset="{{ url_for('static', filename='img/about.jpg') }}" media="(min-width: 992px)" class="img-fluid" style="margin: auto; width: 100%;">
-                <img src="{{ url_for('static', filename='img/about-mobile.jpg') }}" class="img-fluid">
+                <source srcset="{{ url_for('static', filename='img/about.jpg') }}" media="(min-width: 992px)" class="img-fluid">
+                <img src="{{ url_for('static', filename='img/about-mobile.jpg') }}" class="img-fluid" style="max-height: 580px; margin: auto; padding: 0;">
             </picture>
         </div>
-        <div class="col-md-12 col-lg-6">
+        <div class="col-md-12 col-lg-6" style="margin: auto; padding: 0;">
             <div class="row text">
                 <table class="table quick-facts text-muted">
                     <tbody>
@@ -43,6 +160,7 @@ About
             <div class="row">
                 <p style="text-align: justify;">I'm a singer, songwriter, record producer, software developer, and graphic designer with a specialty for making strong aesthetic statements, lush auditory soundscapes, and curated digital experiences. From audio to video, canvas to codebase, I use a wide range of mediums as expressions of my passion for producing memorable experiences with my audience.</p>
                 <p style="text-align: justify;">I was born in Thousand Oaks, California, U.S. in 1995 and currently reside and work in Los Angeles. My music has garnered over 100,000 streams across more than 100 countries worldwide. My code has been deployed to support some of the world's biggest companies.</p>
+                <p style="text-align: center;"><a class="nav-link" href='/dopevideo/' style="text-transform: uppercase;">Watch me {{ action }} here</a></p>
             </div>
         </div>
     </div>

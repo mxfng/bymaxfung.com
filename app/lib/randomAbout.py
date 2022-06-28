@@ -95,5 +95,30 @@ random_facts = (
     )
 )
 
+# watch me ______ here
+random_actions = (
+    'play the tuba',
+    'climb Mt. Everest',
+    'base jump',
+    'address the haters',
+    'sing badly',
+    'bake a cake',
+    'get icy',
+    'swim in jello',
+    '360 no-scope',
+    'snore in bed',
+    'crochet',
+    'critique capitalism',
+    'wear two left shoes',
+    'give up on trying',
+    'ride a unicycle',
+    'fly a helicopter',
+    'go to therapy',
+    'cry profusely'
+)
+
 def random_fact():
     return choice(random_facts)
+
+def random_action():
+    return choice(random_actions)
