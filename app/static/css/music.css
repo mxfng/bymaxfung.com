@@ -54,9 +54,8 @@
 
 @media (min-width: 992px) {
     .music-tile:hover {
-        -filter: brightness(150%);
-        -moz-filter: brightness(150%);
-        -webkit-filter: brightness(150%);
+        background: white;
+        opacity: 0.8;
     }
 }
 
@@ -212,25 +211,19 @@
     transition: opacity 0.5s;
 }
 
+#flip-prompt {
+    display: block;
+    opacity: 0;
+}
+
+#flip-prompt.show-prompt {
+    display: block;
+    opacity: 1;
+}
+
 @media (max-width: 991.98px) {
     #disc-nav .nav-link {
         padding-bottom: 15px;
-    }
-
-    #flip-prompt {
-        display: none;
-    }
-}
-
-@media (min-width: 992px) {
-    #flip-prompt {
-        display: block;
-        opacity: 0;
-    }
-
-    #flip-prompt.show-prompt {
-        display: block;
-        opacity: 1;
     }
 }
 

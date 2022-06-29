@@ -76,16 +76,25 @@ discArt.addEventListener('click', function() {
     }
 });
 
+// Hint to flip on mobile
+function suggestPeek() {
+    if (window.innerWidth < 992) {
+        setTimeout(togglePeek, 1200);
+        setTimeout(togglePeek, 2800);
+    }
+}
+window.addEventListener('DOMContentLoaded', suggestPeek);
+
 // Adjust disc art size by window
-function scaleDiscArt() {
+function handleWindowSizing() {
     if (window.innerWidth < 1200) {
         discArt.style.height = discArtImg.clientHeight.toString() + "px";
     }
 }
 
 window.addEventListener('resize', function () {
-    scaleDiscArt();
+    handleWindowSizing();
 });
 
-discArtImg.addEventListener('load', scaleDiscArt);
-window.addEventListener('DOMContentLoaded', scaleDiscArt);
+discArtImg.addEventListener('load', handleWindowSizing);
+window.addEventListener('DOMContentLoaded', handleWindowSizing);
