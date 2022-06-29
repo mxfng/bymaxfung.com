@@ -26,7 +26,10 @@
     <header class="header-section container sticky-lg-top">
         <div class="header">
             <nav class="navbar navbar-expand-lg">
-                <a class="navbar-brand" href="/">
+                <a
+                    class="navbar-brand"
+                    {% block navbar_brand_link %}{% endblock %}
+                >
                     <img src="{{ url_for('static', filename='img/site-logo.png') }}" , height="40" style="height: 40px; width: 155.55px;">
                 </a>
                 <button id="navbar-icon" class="navbar-icon d-block d-lg-none" data-bs-toggle="collapse" data-bs-target="#navbarMenu"
@@ -41,9 +44,9 @@
                         <ul class="navbar-nav navbar-list-item">
                             <li class="d-block d-lg-none "><a class="nav-link" href="/">Home</a></li>
                             <li class="nav-item"><a class="nav-link" href="/music">Music</a></li>
-                            <li class="nav-item"><a class="nav-link" href="/dev">Dev</a></li>
-                            <li class="nav-item"><a class="nav-link" href="/projects">Projects</a></li>
-                            <li class="nav-item"><a class="nav-link" href="/blog">Blog</a></li>
+                            <li class="nav-item" style="display: none;"><a class="nav-link" href="/dev">Dev</a></li>
+                            <li class="nav-item" style="display: none;"><a class="nav-link" href="/projects">Projects</a></li>
+                            <li class="nav-item" style="display: none;"><a class="nav-link" href="/blog">Blog</a></li>
                         </ul>
                         <hr class="navbar-menu-divider navbar-list-item d-block d-lg-none">
                         <ul class="navbar-nav navbar-right navbar-list-item">
