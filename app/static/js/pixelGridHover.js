@@ -18,7 +18,17 @@ window.addEventListener('mousedown', e => {
     isClicked = true;
 });
 
+window.addEventListener('touchstart', e => {
+    isClicked = true;
+});
+
 window.addEventListener('mouseup', e => {
+    if (isClicked == true) {
+        isClicked = false;
+    }
+});
+
+window.addEventListener('touchend', e => {
     if (isClicked == true) {
         isClicked = false;
     }
@@ -34,6 +44,12 @@ for (var i = 0; i < pixels.length; i++) {
 
     // Drag to apply
     pixels[i].addEventListener('mousemove', function() {
+        if (isClicked == true) {
+            colorizePixel(this);
+        }
+    });
+
+    pixels[i].addEventListener('touchmove', function() {
         if (isClicked == true) {
             colorizePixel(this);
         }
