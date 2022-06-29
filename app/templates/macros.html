@@ -1,0 +1,183 @@
+<!--
+Pixel Grid
+Generates a 6x8 square grid of translucent, animated pixels over a provided image.
+Dynamically resizes the grid to 6x6 when the browser screen size is below 992px.
+
+@param img must use a 4:3 aspect ratio
+@param img_small must use a 1:1 aspect ratio
+@param max_height is the maximum container height in pixels
+@param max_opacity is the upper opacity value for animation
+@param min_opacity is the lower opacity value for animation
+@param duration_upper_bound is the animation's upper time duration in seconds
+@param duration_lower_bound is the animation's lower time duration in seconds
+-->
+
+{% macro pixel_grid(
+    img,
+    img_small,
+    max_height,
+    max_opacity = 0.4,
+    min_opacity = 0,
+    duration_lower_bound = 7,
+    duration_upper_bound = 10,
+    do_not_show = [],
+    do_not_animate = []
+) %}
+
+<style>
+    .pixelgrid {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        overflow: hidden;
+        display: grid;
+        grid-template-columns: auto auto auto auto auto auto;
+    }
+
+    .pixelgrid::selection {
+        background-color: transparent;
+        color: #000;
+    }
+
+    .pixelgrid::-moz-selection {
+        background-color: transparent;
+        color: #000;
+    }
+
+    .pixelgrid .sm {
+        grid-template-rows: auto auto auto auto auto auto;
+    }
+
+    .pixelgrid .lg {
+        grid-template-rows: auto auto auto auto auto auto auto auto;
+    }
+
+    .pixel {
+        background: var(--background-color);
+        animation-iteration-count: infinite;
+        visibility: visible;
+        -webkit-transition: background .5s;
+    }
+
+    @media (min-width: 992px) {
+        .sm {
+            display: none;
+        }
+    }
+
+    @media (max-width: 991.99px) {
+        .lg {
+            display: none;
+        }
+    }
+
+    .pause-animation {
+        -webkit-animation-play-state:paused;
+        -moz-animation-play-state:paused;
+        -o-animation-play-state:paused; 
+        animation-play-state:paused;
+        opacity: 1;
+    }
+
+    .resume-animation {
+        -webkit-animation: flickerAnimation {{ duration }}s infinite;
+        -moz-animation: flickerAnimation {{ duration }}s infinite;
+        -o-animation: flickerAnimation {{ duration }}s infinite;
+        animation: flickerAnimation {{ duration }}s infinite;
+    }
+
+    .clicked {
+        overflow: hidden;
+    }
+
+    @keyframes flickerAnimation {
+        0%   { opacity:{{ max_opacity }}; }
+        50%  { opacity:{{ min_opacity }}; }
+        100% { opacity:{{ max_opacity }}; }
+    }
+        @-o-keyframes flickerAnimation{
+        0%   { opacity:{{ max_opacity }}; }
+        50%  { opacity:{{ min_opacity }}; }
+        100% { opacity:{{ max_opacity }}; }
+    }
+        @-moz-keyframes flickerAnimation{
+        0%   { opacity:{{ max_opacity }}; }
+        50%  { opacity:{{ min_opacity }}; }
+        100% { opacity:{{ max_opacity }}; }
+    }
+        @-webkit-keyframes flickerAnimation{
+        0%   { opacity:{{ max_opacity }}; }
+        50%  { opacity:{{ min_opacity }}; }
+        100% { opacity:{{ max_opacity }}; }
+    }
+
+    /* Assign animation to pixel class elements */
+    {% for n in range(1,49) %}
+        /* Omit select number of class elements */
+        {% if n in do_not_show %}
+            .pixelgrid .pixel:nth-child({{ n }}) {
+                display: none;
+            }
+        {% elif n not in do_not_animate %}
+            {% set duration = range(
+                duration_lower_bound * 10,
+                duration_upper_bound * 10 + 1
+            ) | random / 10 %}
+            .pixelgrid .pixel:nth-child({{ n }}) {
+                -webkit-animation: flickerAnimation {{ duration }}s infinite;
+                -moz-animation: flickerAnimation {{ duration }}s infinite;
+                -o-animation: flickerAnimation {{ duration }}s infinite;
+                animation: flickerAnimation {{ duration }}s infinite;
+            }
+        {% endif %}
+    {% endfor %}
+</style>
+<div class="col-md-12 col-lg-6" style="
+    margin: auto;
+    position: relative;
+    padding: 0;
+    width: auto;"
+>
+    <div id="pixel-grid" class="pixelgrid lg" draggable="false">
+        {% for i in range(1,9) %}
+            {% for j in range (1,7) %}
+                <div
+                    id="lg {{ i }}{{ j }}"
+                    class="pixel"
+                    style="
+                        grid-row: {{ i }};
+                        grid-column: {{ j }};
+                        opacity: {{ range(0,101) | random/100 }};
+                    "
+                >
+                </div>
+            {% endfor %}
+        {% endfor %}
+    </div>
+    <div id="pixel-grid-small" class="pixelgrid sm">
+        {% for i in range(1,7) %}
+            {% for j in range (1,7) %}
+                <div
+                    id="sm {{ i }}{{ j }}"
+                    class="pixel"
+                    style="
+                        grid-row: {{ i }};
+                        grid-column: {{ j }};
+                        opacity: {{ range(0,101) | random/100 }};
+                        "
+                >
+                </div>
+            {% endfor %}
+        {% endfor %}
+    </div>
+    <picture>
+        <source srcset="{{ img }}" media="(min-width: 992px)" class="img-fluid">
+        <img src="{{ img_small }}" class="img-fluid" style="max-height: {{ max_height }}px; margin: auto; padding: 0;">
+    </picture>
+</div>
+
+<script type="text/javascript" src="{{ url_for('static', filename='js/pixelGridHover.js') }}"></script>
+
+{% endmacro %}
