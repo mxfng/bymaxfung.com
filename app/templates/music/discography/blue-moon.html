@@ -6,7 +6,12 @@
 {% block textColor %} '#333037' {% endblock %}
 
 {% block graphic %}
-<img id="disc-graphic" src="{{ url_for('static', filename='img/albumart/blue-moon-graphic.png') }}" class="d-none d-md-block" style="left:-180px; opacity: 0.9; height: 600px;"></img>
+<img
+    id="disc-graphic"
+    src="{{ url_for('static', filename='img/albumart/blue-moon-graphic.png') }}"
+    class="d-none d-md-block"
+    style="left:-180px; opacity: 0.9; height: 600px;"
+></img>
 {% endblock %}
 
 {% block customAnimation %}
@@ -24,8 +29,28 @@
     from {left: 0px; opacity: 0;} 
     to{left:-180px; opacity: 0.9;}
 }
+
+@keyframes glow {
+  from {
+    box-shadow: 0 0 500px -500px white;
+  }
+  to {
+    box-shadow: 0 0 500px 500px white;
+  }
+}
+
 </style>
 {% endblock %}
+
+{% block accent %}
+<img
+    id="disc-accent"
+    src="{{ url_for('static', filename='img/albumart/blue-moon-moon.png') }}"
+    class="d-none d-md-block offscreen"
+    style="left:620px; top: 150px; opacity: 0.1; height: 300px; animation: glow 3s infinite alternate; border-radius: 50%;"
+></img>
+{% endblock %}
+
 
 {% block discTitle %} Blue Moon {% endblock %}
 {% block discType %} Extended Play {% endblock %}
@@ -33,6 +58,7 @@
 {% block discRuntime %} 18:00 {% endblock %}
 
 {% block discArt %} {{ url_for('static', filename='img/albumart/Blue Moon Cover.jpg') }} {% endblock %}
+{% block discArtBack %} {{ url_for('static', filename='img/albumart/Blue Moon Cover Back.jpg') }} {% endblock %}
 
 {% block discDescription %}
 The feelings of loneliness and solitude in the nighttime have always pushed me to create more music.

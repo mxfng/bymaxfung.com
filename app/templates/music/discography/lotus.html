@@ -6,7 +6,12 @@
 {% block textColor %} '#BFB57F' {% endblock %}
 
 {% block graphic %}
-<img id="disc-graphic" src="{{ url_for('static', filename='img/albumart/lotus-graphic.png') }}" class="d-none d-md-block" style="left:-500px; top: 16%; opacity: 0.8;"></img>
+<img
+    id="disc-graphic"
+    src="{{ url_for('static', filename='img/albumart/lotus-graphic.png') }}"
+    class="d-none d-md-block"
+    style="left:-500px; top: 16%; opacity: 0.8;"
+></img>
 {% endblock %}
 
 {% block customAnimation %}
@@ -25,6 +30,15 @@
     to{left:-500px; opacity: 0.9; -webkit-transform: rotate(0deg);} 
 }
 </style>
+{% endblock %}
+
+{% block accent %}
+<img
+    id="disc-accent"
+    src="{{ url_for('static', filename='img/albumart/lotus-lotus.png') }}"
+    class="d-none d-md-block"
+    style="left:620px; top: 25%; opacity: 0.3; height: 40%; border-radius: 50%; filter: blur(4px)"
+></img>
 {% endblock %}
 
 {% block discTitle %} Lotus {% endblock %}

@@ -33,6 +33,13 @@
         height: 50%;
         z-index: 900;
         animation: disc-graphic 5s;
+    }
+    
+    #disc-accent {
+        position: absolute;
+        margin: auto;
+        height: 100%;
+        z-index: 900;
     }​
 
     #disc-content {
@@ -121,8 +128,10 @@
 
 </style>
 {% block customAnimation %}{% endblock %}
+{% block customAccentStyle %}{% endblock %}
 <div style="position: relative;">
     {% block graphic %}{% endblock %}
+    {% block accent %}{% endblock %}
     <div id="disc-content" class="container">
         <div id="disc-body" class="row container art-container">
             <div id="disc-art-scene" class="row">
