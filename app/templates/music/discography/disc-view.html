@@ -12,148 +12,6 @@ href="/"
 {% endblock %}
 
 {% block content %}
-<style>
-    .body {
-        overflow: hidden;
-        padding: 0;
-    }
-
-    .art-container {
-        max-width: 520px;
-    }
-
-    .top-pad {
-        padding-top: 10px;
-    }
-
-    .vertical-pad {
-        padding-top: 10px;
-        padding-bottom: 10px;
-    }
-
-    #disc-graphic {
-        position: absolute;
-        margin: auto;
-        height: 50%;
-        z-index: 900;
-        animation: disc-graphic 5s;
-    }
-    
-    #disc-accent {
-        position: absolute;
-        margin: auto;
-        height: 100%;
-        z-index: 900;
-    }​
-
-    #disc-content {
-        width: auto;
-    }
-
-    #disc-body {
-        margin: auto;
-        max-height: 100%;
-        padding-left: 0;
-        padding-right: 0;
-    }
-
-    #disc-art-scene {
-        margin: auto;
-        z-index: 950;
-        perspective: 600px;
-    }
-
-    #disc-art {
-        width: 100%;
-        height: 500px;
-        position: relative;
-        transition: transform 1s;
-        transform-style: preserve-3d;
-    }
-
-    .disc-art-face {
-        position: absolute;
-        width: 100%;
-        backface-visibility: hidden;
-    }
-
-    .disc-art-back {
-        transform: rotateY( 180deg );
-    }
-
-    #disc-art.is-flipped {
-        transform: rotateY(180deg);
-    }
-
-    #disc-header .row,
-    #disc-header .row .col-auto {
-        padding: 0;
-    }
-
-    #disc-header .row {
-        position: relative;
-    }
-
-    #disc-header .row .col-auto {
-        position: absolute;
-        right: 0;
-        margin-right: -12px;
-    }
-
-    #disc-description {
-        text-align: justify;
-        font-size: 14pt;
-        padding-left: 0;
-        padding-right: 0;
-    }
-
-    #disc-nav {
-        text-transform: lowercase;
-        font-size: 14pt;
-        margin: auto;
-    }
-
-    #disc-nav .nav-link {
-        margin: auto;
-        text-align: center;
-    }
-
-    #back-button {
-        width: 50px;
-        height: 26px;
-        background-color: transparent;
-    }
-
-    @media (max-width: 991.98px) {
-        #disc-nav .nav-link {
-            padding-bottom: 15px;
-        }
-    }
-
-    #overlay {
-        position: fixed; /* Sit on top of the page content */
-        display: none; /* Hidden by default */
-        width: 100%; /* Full width (cover the whole page) */
-        height: 100%; /* Full height (cover the whole page) */
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background-color: rgba(0,0,0,0.5); /* Black background with opacity */
-        z-index: 980; /* Specify a stack order in case you're using a different order for other elements */
-        cursor: pointer; /* Add a pointer on hover */
-    }
-
-    #overlay-body{
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        font-size: 50px;
-        color: white;
-        transform: translate(-50%,-50%);
-        -ms-transform: translate(-50%,-50%);
-    }
-</style>
 
 {% block customAnimation %}{% endblock %}
 {% block customAccentStyle %}{% endblock %}
@@ -164,9 +22,24 @@ href="/"
     <div id="disc-content" class="container">
         <div id="disc-body" class="row container art-container">
             <div id="disc-art-scene" class="row">
+                
+                <div id="flip-prompt">
+                    <i
+                        class="bi-arrow-return-left"
+                        style="margin: auto;"
+                    ></i>
+                </div>
                 <div id="disc-art" style="padding: 0;">
-                    <img class="disc-art-face disc-art-front" src='{% block discArt %}{% endblock %}' class="img-fluid" style="padding: 0;"></img>
-                    <img class="disc-art-face disc-art-back" src='{% block discArtBack %}{% endblock %}' class="img-fluid" style="padding: 0;"></img>
+                    <img
+                    class="disc-art-face disc-art-front"
+                    src='{% block discArt %}{% endblock %}'
+                    class="img-fluid"
+                    style="padding: 0;"/>
+                    <img
+                    class="disc-art-face disc-art-back"
+                    src='{% block discArtBack %}{% endblock %}'
+                    class="img-fluid"
+                    style="padding: 0;"/>
                 </div>
             </div>
             <div id="disc-info">
@@ -219,23 +92,8 @@ href="/"
 <!-- Background Color Effect -->
 <script type="text/javascript" src="{{ url_for('static', filename='js/discViewColors.js') }}"></script>
 <script type="text/javascript" src="{{ url_for('static', filename='js/discArtFlip.js') }}"></script>
+<script type="text/javascript" src="{{ url_for('static', filename='js/discView.js')}}"></script>
 <script>
-    var content = document.getElementsByClassName('content')[0];
-    content.classList.add('tight');
-
-    discViewColors({% block backgroundColor %}{% endblock %},{% block textColor %}{% endblock %});
-
-    function toggleOverlay() {
-        var overlay = document.getElementById("overlay")
-        if (overlay.style.display == "block") {
-            document.getElementById("overlay").style.display = "none";
-        } else {
-            overlay.style.display = "block";
-        }
-    }
-
-    var linkPhotos = document.getElementById("link-photos");
-    linkPhotos.addEventListener("click", toggleOverlay())
-
+    setupDiscView({% block backgroundColor %}{% endblock %},{% block textColor %}{% endblock %});
 </script>
 {% endblock %}
