@@ -10,7 +10,7 @@
     id="disc-graphic"
     src="{{ url_for('static', filename='img/albumart/lotus-graphic.png') }}"
     class="d-none d-md-block"
-    style="left:-500px; top: 16%; opacity: 0.8;"
+    style="left:-500px; top: 16%; opacity: 1;"
 ></img>
 {% endblock %}
 
@@ -18,16 +18,16 @@
 <style>
 /* Graphic Animation */
 @keyframes disc-graphic {
-    from {left: -300px; opacity: 0; transform: rotate(-20deg);} 
-    to{left:-500px; opacity: 0.9; transform: rotate(0deg);} 
+    from {left: -300px; opacity: 0; transform: rotate(20deg);} 
+    to{left:-500px; opacity: 1; transform: rotate(0deg);} 
 }
 @-moz-keyframes disc-graphic {
-    from {left: -300px; opacity: 0; -moz-transform: rotate(-20deg);} 
-    to{left:-500px; opacity: 0.9; -moz-transform: rotate(0deg);} 
+    from {left: -300px; opacity: 0; -moz-transform: rotate(20deg);} 
+    to{left:-500px; opacity: 1; -moz-transform: rotate(0deg);} 
 }
 @-webkit-keyframes disc-graphic {
-    from {left: -300px; opacity: 0; -webkit-transform: rotate(-20deg);} 
-    to{left:-500px; opacity: 0.9; -webkit-transform: rotate(0deg);} 
+    from {left: -300px; opacity: 0; -webkit-transform: rotate(20deg);} 
+    to{left:-500px; opacity: 1; -webkit-transform: rotate(0deg);} 
 }
 </style>
 {% endblock %}
@@ -36,8 +36,8 @@
 <img
     id="disc-accent"
     src="{{ url_for('static', filename='img/albumart/lotus-lotus.png') }}"
-    class="d-none d-md-block"
-    style="left:620px; top: 25%; opacity: 0.3; height: 40%; border-radius: 50%; filter: blur(4px)"
+    class="d-none d-lg-block"
+    style="left:480px; top: 120px; opacity: 0.5; height: 40%; border-radius: 50%; z-index: 900;"
 ></img>
 {% endblock %}
 

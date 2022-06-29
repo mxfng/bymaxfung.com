@@ -18,24 +18,24 @@
 <style>
 /* Graphic Animation */
 @keyframes disc-graphic {
-    from {left: 0px; opacity: 0;} 
+    from {left: -100px; opacity: 0;} 
     to{left:-180px; opacity: 0.9;}
 }
 @-moz-keyframes disc-graphic {
-    from {left: 0px; opacity: 0;} 
+    from {left: -100px; opacity: 0;} 
     to{left:-180px; opacity: 0.9;}
 }
 @-webkit-keyframes disc-graphic {
-    from {left: 0px; opacity: 0;} 
+    from {left: -100px; opacity: 0;} 
     to{left:-180px; opacity: 0.9;}
 }
 
 @keyframes glow {
   from {
-    box-shadow: 0 0 500px -500px white;
+    box-shadow: 0 0 200px -200px #42d7f5;
   }
   to {
-    box-shadow: 0 0 500px 500px white;
+    box-shadow: 0 0 200px 200px #42d7f5;
   }
 }
 
@@ -46,8 +46,8 @@
 <img
     id="disc-accent"
     src="{{ url_for('static', filename='img/albumart/blue-moon-moon.png') }}"
-    class="d-none d-md-block offscreen"
-    style="left:620px; top: 150px; opacity: 0.1; height: 300px; animation: glow 3s infinite alternate; border-radius: 50%;"
+    class="d-none d-lg-block offscreen"
+    style="left:620px; top: 150px; opacity: 0.3; height: 300px; animation: glow 3s infinite alternate; border-radius: 50%;"
 ></img>
 {% endblock %}
 

@@ -126,9 +126,34 @@
         }
     }
 
+    #overlay {
+        position: fixed; /* Sit on top of the page content */
+        display: none; /* Hidden by default */
+        width: 100%; /* Full width (cover the whole page) */
+        height: 100%; /* Full height (cover the whole page) */
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(0,0,0,0.5); /* Black background with opacity */
+        z-index: 980; /* Specify a stack order in case you're using a different order for other elements */
+        cursor: pointer; /* Add a pointer on hover */
+    }
+
+    #overlay-body{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        font-size: 50px;
+        color: white;
+        transform: translate(-50%,-50%);
+        -ms-transform: translate(-50%,-50%);
+    }
 </style>
+
 {% block customAnimation %}{% endblock %}
 {% block customAccentStyle %}{% endblock %}
+
 <div style="position: relative;">
     {% block graphic %}{% endblock %}
     {% block accent %}{% endblock %}
@@ -172,7 +197,7 @@
             </div>
             <div id="disc-nav" class="row justify-content-center">
                 <div class="col"><a class="nav-link" href="#tracks">Tracklist</a></div>
-                <div class="col"><a class="nav-link" href="#photos">Photos</a></div>
+                <div class="col"><a id="link-photos" class="nav-link" href="#photos">Photos</a></div>
                 <div class="col"><a class="nav-link" href="#videos">Videos</a></div>
                 <div class="col"><a id="back-button" class="nav-link" href="/music">Back</a></div>
             </div>
@@ -195,5 +220,18 @@
     content.classList.add('tight');
 
     discViewColors({% block backgroundColor %}{% endblock %},{% block textColor %}{% endblock %});
+
+    function toggleOverlay() {
+        var overlay = document.getElementById("overlay")
+        if (overlay.style.display == "block") {
+            document.getElementById("overlay").style.display = "none";
+        } else {
+            overlay.style.display = "block";
+        }
+    }
+
+    var linkPhotos = document.getElementById("link-photos");
+    linkPhotos.addEventListener("click", toggleOverlay())
+
 </script>
 {% endblock %}
