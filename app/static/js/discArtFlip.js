@@ -24,6 +24,8 @@ function togglePeekWhileFlipped() {
 }
 
 function resetPeek() {
+    if (window.innerWidth < 992) { return }
+
     if (discArt.classList.contains('is-peeking')) {
         discArt.classList.toggle('is-peeking');
         discArtPrompt.classList.toggle('show-prompt');
@@ -34,14 +36,19 @@ function resetPeek() {
 }
 
 function enablePeek() {
+    if (window.innerWidth < 992) { return }
+
     discArt.onmouseover = togglePeek;
     discArt.onmouseleave = resetPeek;
+
     if (isMouseHover) {
         togglePeek();
     }
 }
 
 function enablePeekWhileFlipped() {
+    if (window.innerWidth < 992) { return }
+
     discArt.onmouseover = togglePeekWhileFlipped;
     discArt.onmouseleave = resetPeek;
     if (isMouseHover) {
@@ -51,6 +58,7 @@ function enablePeekWhileFlipped() {
 
 function disablePeek() {
     discArt.onmouseover = null;
+    discArt.onmouseleave = null;
 }
 
 enablePeek();
@@ -58,6 +66,8 @@ enablePeek();
 // Peek (back)
 
 function enablePeekWhileFlipped() {
+    if (window.innerWidth < 992) { return }
+
     discArt.onmouseover = togglePeekWhileFlipped;
     discArt.onmouseleave = resetPeek;
 }
@@ -77,13 +87,15 @@ discArt.addEventListener('click', function() {
 });
 
 // Hint to flip on mobile
-function suggestPeek() {
+function suggestPeekMobile() {
     if (window.innerWidth < 992) {
+        disablePeek();
         setTimeout(togglePeek, 1200);
         setTimeout(togglePeek, 2800);
     }
 }
-window.addEventListener('DOMContentLoaded', suggestPeek);
+
+window.addEventListener('DOMContentLoaded', suggestPeekMobile);
 
 // Adjust disc art size by window
 function handleWindowSizing() {
@@ -96,5 +108,4 @@ window.addEventListener('resize', function () {
     handleWindowSizing();
 });
 
-discArtImg.addEventListener('load', handleWindowSizing);
-window.addEventListener('DOMContentLoaded', handleWindowSizing);
+window.addEventListener('load', handleWindowSizing);
