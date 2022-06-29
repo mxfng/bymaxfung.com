@@ -8,8 +8,8 @@ var discArtPrompt = document.getElementById('flip-prompt');
 // Reveal prompt to flip disk art
 
 var isMouseHover = false;
-discArtScene.addEventListener('mouseover', function() { console.log('isMouseHover true'); isMouseHover = true; });
-discArtScene.addEventListener('mouseout', function() { console.log('isMouseHover false'); isMouseHover = false; });
+discArtScene.addEventListener('mouseover', function() { isMouseHover = true; });
+discArtScene.addEventListener('mouseout', function() { isMouseHover = false; });
 
 // Peek (front)
 function togglePeek() {
