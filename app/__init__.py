@@ -16,7 +16,7 @@ def create_app():
     @app.context_processor
     def inject_now():
         return dict(now=times.ptnow())
-
+    
     @app.errorhandler(404)
     def page_not_found(e):
         def get_meme():
