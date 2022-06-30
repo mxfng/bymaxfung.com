@@ -72,7 +72,7 @@ function enablePeekWhileFlipped() {
 
 // Flip disc art on click
 function enableClick() {
-    discArt.addEventListener('click', function() {
+    discArtScene.addEventListener('click', function() {
         resetPeek();
         disablePeek();
     
