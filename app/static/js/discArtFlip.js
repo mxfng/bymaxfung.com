@@ -61,8 +61,6 @@ function disablePeek() {
     discArt.onmouseleave = null;
 }
 
-enablePeek();
-
 // Peek (back)
 
 function enablePeekWhileFlipped() {
@@ -73,29 +71,35 @@ function enablePeekWhileFlipped() {
 }
 
 // Flip disc art on click
-discArt.addEventListener('click', function() {
-    resetPeek();
-    disablePeek();
-
-    discArt.classList.toggle('is-flipped');
-
-    if (!discArt.classList.contains('is-flipped')) {
-        setTimeout(enablePeek, 1000);
-    } else {
-        setTimeout(enablePeekWhileFlipped, 1000);
-    }
-});
-
-// Hint to flip on mobile
-function suggestPeekMobile() {
-    if (window.innerWidth < 992) {
+function enableClick() {
+    discArt.addEventListener('click', function() {
+        resetPeek();
         disablePeek();
-        setTimeout(togglePeek, 1200);
-        setTimeout(togglePeek, 2800);
-    }
+    
+        discArt.classList.toggle('is-flipped');
+    
+        if (!discArt.classList.contains('is-flipped')) {
+            setTimeout(enablePeek, 800);
+        } else {
+            setTimeout(enablePeekWhileFlipped, 800);
+        }
+    });    
 }
 
-window.addEventListener('DOMContentLoaded', suggestPeekMobile);
+// Suggest to peek
+function suggestPeek() {
+    disablePeek();
+    setTimeout(togglePeek, 1200);
+    setTimeout(togglePeek, 2500);
+    setTimeout(function() {
+        if (window.innerWidth >= 992) {
+            enablePeek()    // Disabled on mobile
+        }
+        enableClick()     
+    }, 3800);
+}
+
+window.addEventListener('DOMContentLoaded', suggestPeek);
 
 // Adjust disc art size by window
 function handleWindowSizing() {
