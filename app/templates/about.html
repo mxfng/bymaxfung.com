@@ -15,32 +15,6 @@ href="/"
 {% endblock %}
 
 {% block content %}
-<style>
-    .about-content {
-        margin: auto;
-        padding: 0;
-    }
-
-    @media (min-width: 992px) {
-        .about-content {
-            padding-left: 10px;
-        }
-    }
-
-    .random-action {
-        text-align: center;
-        width: auto;
-        padding: 5px;
-        background: var(--primary-color);
-        color: var(--background-color);
-        display: inline-block;
-    }
-
-    .random-action:hover {
-        background: var(--background-color);
-        color: var(--primary-color);
-    }
-</style>
 <div class="container" style="margin: auto;">
     <div class="row align-items-center" style="margin: auto;">
 
@@ -99,8 +73,5 @@ href="/"
 
 {% block scripts %}
 <!-- Add tight class to content class -->
-<script>
-    var content = document.getElementsByClassName('content')[0];
-    content.classList.add('tight');
-</script>
+<script type="text/javascript" src="{{ url_for('static', filename='js/contentLayoutTight.js')}}"
 {% endblock %}

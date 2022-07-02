@@ -1,5 +1,4 @@
 from flask import Blueprint, render_template, url_for
-from datetime import date
 from ..lib import randomAbout, times
 
 views = Blueprint("views", __name__)
@@ -15,15 +14,12 @@ def about():
     pixel_image_small = url_for('static', filename='img/about-mobile.jpg')
     return render_template(
         'about.html',
-        fact=randomAbout.random_fact(),
-        action=randomAbout.random_action(),
         pixel_image=pixel_image,
         pixel_image_small=pixel_image_small,
+        age=times.agenow('1995-09-30'),
+        fact=randomAbout.random_fact(),
+        action=randomAbout.random_action()
     )
-
-@views.context_processor
-def calculate_age():
-    return dict(age=times.agenow('1995-09-30'))
 
 @views.route("/contact")
 def contact():

@@ -89,9 +89,6 @@ href="/"
 </div>
 {% endblock %}
 {% block scripts %}
-<!-- Background Color Effect -->
-<script type="text/javascript" src="{{ url_for('static', filename='js/discViewColors.js') }}"></script>
-<script type="text/javascript" src="{{ url_for('static', filename='js/discArtFlip.js') }}"></script>
 <script type="text/javascript" src="{{ url_for('static', filename='js/discView.js')}}"></script>
 <script>
     setupDiscView({% block backgroundColor %}{% endblock %},{% block textColor %}{% endblock %});

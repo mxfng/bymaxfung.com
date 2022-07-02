@@ -1,7 +1,5 @@
 from flask import Flask, render_template, send_from_directory, url_for
-from flask_sqlalchemy import SQLAlchemy
 from os import path, listdir
-from .lib import times
 import random
 
 def create_app():
@@ -9,6 +7,7 @@ def create_app():
 
     from .routes.views import views
     from .routes.music import music
+    from .lib import times
 
     app.register_blueprint(views, url_prefix="/")
     app.register_blueprint(music)
@@ -22,11 +21,12 @@ def create_app():
         def get_meme():
             choice = random.choice(listdir(path.join(app.root_path, 'static/img/meme')))
             return url_for('static', filename='img/meme/' + choice)
-        return render_template('404.html', value = get_meme()), 404
+        return render_template('404.html', meme = get_meme()), 404
 
     
     @app.route('/favicon.ico')
     def favicon():
+        from os import path
         return send_from_directory(
             path.join(app.root_path, 'static'),
             'favicon.ico',mimetype='image/vnd.microsoft.icon'
