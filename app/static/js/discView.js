@@ -129,7 +129,7 @@ function setupDiscAnimations() {
                 enablePeek()    // Disabled on mobile
             }
             enableClick()     
-        }, 3500);
+        }, 2400);
     }
     
     // Hack: adjust disc art div size by window
