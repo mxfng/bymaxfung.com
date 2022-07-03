@@ -47,6 +47,13 @@ body.noscroll {
     overflow: hidden;
 }
 
+@media (min-width: 992px) {
+    body {
+        padding-left: 60px;
+        padding-right: 60px;
+    }
+}
+
 
 /* Typography
 ------------------------------------------ */
@@ -261,11 +268,11 @@ body.noscroll {
 .content {
     max-width: var(--max-page-width);
     margin: auto;
+    padding: 0;
     clear: both;
     opacity: 0;
     transition-duration: 0.3s;
     transition-property: opacity;
-    padding: 10px;
 }
 
 .content.fade {
@@ -277,7 +284,7 @@ body.noscroll {
 }
 
 .tight {
-    max-width: var(--max-tight-width);
+    max-width: var(--max-tight-width) !important;
 }
 
 .attached {
@@ -287,13 +294,6 @@ body.noscroll {
 
 .text {
     padding: 10px;
-}
-
-@media (min-width: 992px) {
-    .content {
-        padding-left: 60px;
-        padding-right: 60px;
-    }
 }
 
 /* Footer

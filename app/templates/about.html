@@ -38,8 +38,8 @@ href="/"
 
         <!-- End -->
 
-        <div class="col-md-12 col-lg-6 about-content">
-            <div class="row text">
+        <div class="col-md-12 col-lg-6 about-content" style="margin: auto;">
+            <div class="row">
                 <table class="table quick-facts text-muted">
                     <tbody>
                         <tr>
@@ -64,7 +64,7 @@ href="/"
             <div class="row">
                 <p style="text-align: justify;">I'm a singer, songwriter, record producer, software developer, and graphic designer with a specialty for making strong aesthetic statements, lush auditory soundscapes, and curated digital experiences. From audio to video, canvas to codebase, I use a wide range of mediums as expressions of my passion for producing memorable experiences with my audience.</p>
                 <p style="text-align: justify;">I was born in Thousand Oaks, California, U.S. in 1995 and currently reside and work in Los Angeles. My music has garnered over 100,000 streams across more than 100 countries worldwide. My code has been deployed to support some of the world's biggest companies.</p>
-                <p id="random-action" style="text-align: center; padding: 10px;"><a class="nav-link random-action" href='/dopevideo/' style="text-transform: uppercase;">Watch me {{ action }} here</a></p>
+                <p id="random-action"><a class="nav-link" href='/video'>Watch me {{ action }} here</a></p>
             </div>
         </div>
     </div>
@@ -73,5 +73,5 @@ href="/"
 
 {% block scripts %}
 <!-- Add tight class to content class -->
-<script type="text/javascript" src="{{ url_for('static', filename='js/contentLayoutTight.js')}}"
+<script type="text/javascript" src="{{ url_for('static', filename='js/contentTightLayout.js') }}"></script>
 {% endblock %}

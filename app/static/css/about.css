@@ -1,3 +1,22 @@
 .quick-facts {
     text-transform: uppercase;
 }
+
+#random-action {
+    text-align: center;
+    text-transform: uppercase;
+    padding: 10px;
+    width: auto;
+    margin: auto;
+}
+
+#random-action > a {
+    background: var(--primary-color);
+    color: var(--background-color);
+    padding: 10px;
+}
+
+#random-action > a:hover {
+    background: var(--background-color);
+    color: var(--primary-color);
+}
