@@ -1,57 +1,14 @@
 // Fades pixels based on mouse position
-var pixels = document.getElementsByClassName('pixel');
-
-function colorizePixel(pixel) {
-    pixel.style.background = '#'+(Math.random() * 0xFFFFFF << 0).toString(16).padStart(6, '0');
-
-    if (pixel.classList.contains('clicked')) {
-        pixel.style.background = 'white';
+function colorizePixel() {
+    if (this.classList.contains('clicked')) {
+        this.style.background = 'white';
+    } else {
+        this.style.background = '#'+(Math.random() * 0xFFFFFF << 0).toString(16).padStart(6, '0');
     }
-    pixel.classList.toggle('clicked');
+    this.classList.toggle('clicked');
 }
 
-// Click and drag functionality
-
-var isClicked = false;
-
-window.addEventListener('mousedown', e => {
-    isClicked = true;
-});
-
-window.addEventListener('touchstart', e => {
-    isClicked = true;
-});
-
-window.addEventListener('mouseup', e => {
-    if (isClicked == true) {
-        isClicked = false;
-    }
-});
-
-window.addEventListener('touchend', e => {
-    if (isClicked == true) {
-        isClicked = false;
-    }
-});
-
-// Apply to all elements
+var pixels = document.getElementsByClassName('pixel');
 for (var i = 0; i < pixels.length; i++) {
-
-    // Click to change colors
-    pixels[i].addEventListener('click', function() {
-        colorizePixel(this);
-    });
-
-    // Drag to apply
-    pixels[i].addEventListener('mousemove', function() {
-        if (isClicked == true) {
-            colorizePixel(this);
-        }
-    });
-
-    pixels[i].addEventListener('touchmove', function() {
-        if (isClicked == true) {
-            colorizePixel(this);
-        }
-    });
+    pixels[i].addEventListener('click', colorizePixel);
 }

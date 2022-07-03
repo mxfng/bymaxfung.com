@@ -11,7 +11,9 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
     <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+    
     {% block head %}{% endblock %}
+    
     <title>{% block title %}{% endblock %}</title>
 </head>
 
@@ -28,7 +30,7 @@
             <nav class="navbar navbar-expand-lg">
                 <a class="navbar-brand" {% block navbar_brand_link %}{% endblock %}>
                     <!-- Replace with .svg -->
-                    <img src="{{ url_for('static', filename='img/site-logo.png') }}" , height="40" style="height: 40px; width: 155.55px;">
+                    <img id="site-logo" src="{{ url_for('static', filename='img/site-logo.png') }}" , height="40">
                 </a>
                 <button id="navbar-icon" class="navbar-icon d-block d-lg-none" data-bs-toggle="collapse" data-bs-target="#navbarMenu"
                     aria-controls="navbarMenu" aria-expanded="false" aria-label="Toggle navigation">
@@ -76,5 +78,7 @@
 ></script>
 <script type="text/javascript" src="{{ url_for('static', filename='js/mobileNav.js') }}"></script>
 <script type="text/javascript" src="{{ url_for('static', filename='js/contentTransition.js') }}"></script>
+
 {% block scripts %}{% endblock %}
+
 </html>

@@ -109,6 +109,11 @@ body.noscroll {
     }
 }
 
+#site-logo {
+    height: 40px;
+    width: 155.55px;
+}
+
  /* Overlay (Mobile) */
 
  .navbar .navbar-icon, .navbar .navbar-wrapper, .navbar .navbar-brand {
@@ -316,3 +321,13 @@ body.noscroll {
     color: var(--primary-color);
     padding-left: 7px;
 }
+
+/* 404 Error Page
+------------------------------------------ */
+
+#meme {
+    width: 337px;
+    height: 337px;
+    object-fit: cover; 
+    padding: 10px;
+}         
