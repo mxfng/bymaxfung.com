@@ -70,6 +70,25 @@ A header with a left-aligned brand logo and software-related links.
 
 {% macro software_header() %}
 
+<!-- Mobile Icon -->
+<button id="navbar-icon" class="navbar-icon d-block d-lg-none" data-bs-toggle="collapse" data-bs-target="#navbarMenu"
+    aria-controls="navbarMenu" aria-expanded="false" aria-label="Toggle navigation">
+    <span></span><span></span><span></span><span></span>
+</button>
+
+<!-- Links -->
+<div id="navbarMenu" class="collapse navbar-collapse">
+    <div class="navbar-lists">
+        <ul class="navbar-nav navbar-list-item ms-auto">
+            <li class="d-block d-lg-none "><a class="nav-link" href="/">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="/software">Software</a></li>
+            <li class="nav-item"><a class="nav-link" href="/">Projects</a></li>
+            <li class="nav-item"><a class="nav-link" href="/">Resume</a></li>
+            <li class="nav-item"><a class="nav-link" href="/">Info</a></li>
+        </ul>
+    </div>
+</div>
+
 <!-- Brand -->
 <a class="navbar-brand" href="/">
     <svg id="site-logo-svg"
@@ -83,25 +102,6 @@ A header with a left-aligned brand logo and software-related links.
         <path class="cls-1" d="M96.07,18.97v-4.27c0-.99,.33-1.89,1-2.71,.67-.82,1.87-1.21,3.62-1.16,1.75,.05,2.99,.12,3.73,.21V.28c-1.18-.09-2.1-.16-2.78-.21-.68-.05-1.44-.07-2.27-.07-7.33,0-11.95,1.52-13.87,4.55-1.83,2.04-2.74,5.77-2.74,11.18v3.25h-7.24v9.32h7.38v14.79h12.99v12.99h-12.99v12.99h13.17V28.3h8.67v-9.32h-8.67Z"/>
     </svg>
 </a>
-
-<!-- Mobile Icon -->
-<button id="navbar-icon" class="navbar-icon d-block d-lg-none" data-bs-toggle="collapse" data-bs-target="#navbarMenu"
-    aria-controls="navbarMenu" aria-expanded="false" aria-label="Toggle navigation">
-    <span></span><span></span><span></span><span></span>
-</button>
-
-<!-- Links -->
-<div id="navbarMenu" class="collapse navbar-collapse">
-    <div class="navbar-lists">
-        <ul class="navbar-nav navbar-list-item">
-            <li class="d-block d-lg-none "><a class="nav-link" href="/">Home</a></li>
-            <li class="nav-item"><a class="nav-link" href="/software">Software</a></li>
-            <li class="nav-item"><a class="nav-link" href="/">Projects</a></li>
-            <li class="nav-item"><a class="nav-link" href="/">Resume</a></li>
-            <li class="nav-item"><a class="nav-link" href="/">Info</a></li>
-        </ul>
-    </div>
-</div>
 
 {% endmacro %}
 
