@@ -15,7 +15,10 @@ Music
 {% endblock %}
 
 {% block content %}
-I am a musician!
+<video playsinline autoplay muted loop poster="{{ url_for('static', filename='img/music_landing.jpg') }}" id="bgvid">
+  <source src="{{ url_for('static', filename='video/' + video + '.webm') }}" type="video/webm">
+  <source src="{{ url_for('static', filename='video/' + video + '.mp4') }}" type="video/mp4">
+</video>
 {% endblock %}
 
 {% block scripts %}

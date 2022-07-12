@@ -66,12 +66,18 @@ body.noscroll {
     background-color: transparent;
     max-width: var(--max-page-width);
     mix-blend-mode: difference !important;
-    padding-top: 30px;
+    padding-top: 20px;
     padding-left: 40px;
     padding-right: 30px;
+    height: 120px;
+    z-index: 1000;
 }
 .header {
     margin: auto;
+}
+
+.navbar {
+    height: 67px;
 }
 
 .navbar-nav > li{
@@ -265,7 +271,7 @@ body.noscroll {
 ------------------------------------------ */
 
 .content {
-    mix-blend-mode: difference;
+
     margin: auto;
     padding: 0;
     clear: both;
@@ -280,7 +286,8 @@ body.noscroll {
 }
 
 .content.hidden {
-    visibility: hidden;
+    opacity: 0;
+    pointer-events: none;
 }
 
 .tight {

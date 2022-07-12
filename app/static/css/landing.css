@@ -1,4 +1,5 @@
 .content {
+    mix-blend-mode: difference;
     position: absolute;
     top: 0;
     left: 0;
@@ -106,5 +107,5 @@
 }
 
 .navbar-brand.right {
-    left: calc(100% - 90px);
+    left: calc(100% - 95px);
 }

@@ -42,3 +42,10 @@ window.onload = function() {
         return false;
     }
 }
+
+window.addEventListener( "pageshow", function ( event ) {
+    var historyTraversal = event.persisted;
+    if ( historyTraversal ) {
+      window.location.reload();
+    }
+});
