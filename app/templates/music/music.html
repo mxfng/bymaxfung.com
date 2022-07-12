@@ -1,5 +1,7 @@
 {% extends "base.html" %}
 
+{% from 'macros.html' import music_header %}
+
 {% block head %}
 <link rel="stylesheet" href="{{ url_for('static', filename='css/music.css') }}">
 {% endblock %}
@@ -8,56 +10,12 @@
 Music
 {% endblock %}
 
-{% block navbar_brand_link %}
-href="/"
+{% block header %}
+{{ music_header() }}
 {% endblock %}
 
 {% block content %}
-<div class="music-header text-muted">discography</div>
-<div class="music-grid row">
-    <div id="blue-moon" class="music-tile col-xl">
-        <img src="{{ url_for('static', filename='img/albumart/Blue Moon Cover.jpg') }}" class="img-fluid"></img>
-        <div class="music-info">
-            <div class="row">
-                <div class="col">
-                    Blue Moon
-                </div>
-                <div class="col-auto">
-                    Extended Play
-                </div>
-            </div>
-            <div class="row">
-                <div class="col">
-                    2020
-                </div>
-                <div class="col-auto">
-                    18:00
-                </div>
-            </div>
-        </div>
-    </div>
-    <div id="lotus" class="music-tile col-xl">
-        <img src="{{ url_for('static', filename='img/albumart/Lotus Cover.jpg') }}" class="img-fluid"></img>
-        <div class="music-info">
-            <div class="row">
-                <div class="col">
-                    Lotus
-                </div>
-                <div class="col-auto">
-                    Extended Play
-                </div>
-            </div>
-            <div class="row">
-                <div class="col">
-                    2019
-                </div>
-                <div class="col-auto">
-                    13:15
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+I am a musician!
 {% endblock %}
 
 {% block scripts %}

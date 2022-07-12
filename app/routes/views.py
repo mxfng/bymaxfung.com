@@ -20,19 +20,3 @@ def about():
         fact=randomAbout.random_fact(),
         action=randomAbout.random_action()
     )
-
-@views.route("/contact")
-def contact():
-    return render_template('contact.html')
-
-@views.route("/blog")
-def blog():
-    return render_template('blog.html')
-
-@views.route("/dev")
-def dev():
-    return render_template('dev.html')
-
-@views.route("/projects")
-def projects():
-    return render_template('projects.html')

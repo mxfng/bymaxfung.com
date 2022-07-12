@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 
-{% from 'macros.html' import pixel_grid %}
+{% from 'macros.html' import landing_header, pixel_grid %}
 
 {% block head %}
 <link rel="stylesheet" href="{{ url_for('static', filename='css/about.css') }}">
@@ -10,8 +10,8 @@
 About
 {% endblock %}
 
-{% block navbar_brand_link %}
-href="/"
+{% block header %}
+{{ landing_header() }}
 {% endblock %}
 
 {% block content %}

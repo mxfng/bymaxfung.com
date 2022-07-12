@@ -1,5 +1,7 @@
 {% extends "base.html" %}
 
+{% from 'macros.html' import landing_header %}
+
 {% block head %}
 {% endblock %}
 
@@ -7,19 +9,13 @@
 Max Fung
 {% endblock %}
 
-{% block navbar_brand_link %}
-href="/"
+{% block header %}
+{{ landing_header() }}
 {% endblock %}
 
 {% block content %}
-<a href="music/blue-moon" style="color: inherit; text-decoration: inherit;">
-    <div class="row justify-content-center">
-        <img
-        src="{{ url_for('static', filename='img/gallery/blue-moon/reeditedmax-2 Large.jpeg') }}"
-        style="max-width: 666px; height: 666px; object-fit: cover; padding: 10px;"/>
-        <p style="text-align: center;">Blue Moon EP is out now</p>
-    </div>
-</a>
+<a href="/music">Music</a>
+<a href="/software">Software</a>
 {% endblock %}
 
 {% block scripts %}{% endblock %}

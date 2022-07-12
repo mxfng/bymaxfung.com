@@ -1,5 +1,7 @@
 {% extends "base.html" %}
 
+{% from 'macros.html' import software_header %}
+
 {% block head %}
 {% endblock %}
 
@@ -7,8 +9,8 @@
 Dev
 {% endblock %}
 
-{% block navbar_brand_link %}
-href="/"
+{% block header %}
+{{ software_header() }}
 {% endblock %}
 
 {% block content %}

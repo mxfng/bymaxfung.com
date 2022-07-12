@@ -7,10 +7,12 @@ def create_app():
 
     from .routes.views import views
     from .routes.music import music
+    from .routes.software import software
     from .lib import times
 
     app.register_blueprint(views, url_prefix="/")
     app.register_blueprint(music)
+    app.register_blueprint(software)
 
     @app.context_processor
     def inject_now():

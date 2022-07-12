@@ -14,7 +14,7 @@
 
     --app-height: 100%;    /* For mobile */
 
-    --pixel-line: repeating-linear-gradient(to right,var(--primary-color) 0,var(--primary-color) 3px,transparent 3px,transparent 7px);
+    --pixel-line: repeating-linear-gradient(to right, var(--primary-color) 0, var(--primary-color) 3px, transparent 3px, transparent 7px);
 }
 
 .debug {
@@ -69,7 +69,6 @@ body.noscroll {
 /* Navbar */
 
 .header-section {
-    background-color: var(--background-color);
     max-width: var(--max-page-width);
 }
 .header {
@@ -84,6 +83,18 @@ body.noscroll {
     text-transform: lowercase;
 }
 
+.nav-link {
+    color: var(--primary-color);
+}
+
+.navbar-brand {
+    width: 80px;
+}
+
+#site-logo-svg .cls-1 {
+    fill: var(--primary-color);
+}
+
 @media (min-width: 992px) {
     .navbar .navbar-lists {
         width: 100%;
@@ -92,7 +103,7 @@ body.noscroll {
     }
 
     .navbar-brand {
-        padding-right: 40px;
+        padding-right: 10px;
     }
 
     .navbar-right {
@@ -104,11 +115,6 @@ body.noscroll {
     }
 }
 
-#site-logo {
-    height: 40px;
-    width: 155.55px;
-}
-
  /* Overlay (Mobile) */
 
  .navbar .navbar-icon, .navbar .navbar-wrapper, .navbar .navbar-brand {
@@ -117,7 +123,6 @@ body.noscroll {
 
  @media (max-width: 991.99px) {
     .navbar .navbar-collapse {
-        background: var(--background-color);
         opacity: 0;
         position: fixed;
         top: 0; left: 0; right: 0; bottom: 0;
@@ -266,7 +271,6 @@ body.noscroll {
 ------------------------------------------ */
 
 .content {
-    max-width: var(--max-page-width);
     margin: auto;
     padding: 0;
     clear: both;

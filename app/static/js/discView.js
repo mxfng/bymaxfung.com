@@ -22,17 +22,11 @@ function discViewColors(backgroundColor, textColor) {
 
     // Background Color
     document.body.style.background = backgroundColor;
-    headerSection.style.background = backgroundColor;
     backButton.style.background = textColor;
 
     // Text Color
     document.body.style.color = textColor;
     backButton.style.color = backgroundColor;
-    
-    // Special case for `navbar-collapse`
-    setTimeout(function() {
-        mobileNavSection.style.background = backgroundColor; // Delays nav coloration
-    }, 1000)
 };
 
 // Disc Art animation, prompt, and positioning

@@ -1,5 +1,7 @@
 {% extends "base.html" %}
 
+{% from 'macros.html' import music_header %}
+
 {% block head %}
 <link rel="stylesheet" href="{{ url_for('static', filename='css/music.css') }}">
 {% endblock %}
@@ -7,8 +9,8 @@
 {% block title %}
 {% endblock %}
 
-{% block navbar_brand_link %}
-href="/"
+{% block header %}
+{{ music_header() }}
 {% endblock %}
 
 {% block content %}
