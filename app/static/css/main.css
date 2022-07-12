@@ -38,7 +38,7 @@ body {
     grid-template-columns: 1fr;
     grid-template-rows: auto 1fr var(--footer-height);
     row-gap: 0;
-    font-family: qirate;
+    font-family: brulia;
     font-size: 18px;
     min-height:100%;
 }
@@ -59,13 +59,8 @@ body.noscroll {
 ------------------------------------------ */
 
 @font-face{
-    font-family: qirate;
-    src: url('../fonts/Qirate.otf');
-}
-
-@font-face{
-    font-family: DigiBop-Italic;
-    src: url('../fonts/DigiBop-Italic.otf');
+    font-family: brulia;
+    src: url('../fonts/Brulia-Display.woff2');
 }
 
 /* Header
