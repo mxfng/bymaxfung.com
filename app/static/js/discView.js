@@ -11,7 +11,6 @@ function discViewColors(backgroundColor, textColor) {
     var discContent = document.getElementById('disc-content');
     var mobileNavSection = document.getElementsByClassName('navbar-collapse')[0];
     var backButton = document.getElementById('back-button');
-    var footerSection = document.getElementsByClassName('footer')[0];
 
     function addTransition(elements) {
         for (var i = 0; i < elements.length; i++) {
@@ -19,7 +18,7 @@ function discViewColors(backgroundColor, textColor) {
         }
     }
 
-    addTransition([document.body, headerSection, discContent, mobileNavSection, backButton, footerSection]);
+    addTransition([document.body, headerSection, discContent, mobileNavSection, backButton]);
 
     // Background Color
     document.body.style.background = backgroundColor;
@@ -29,10 +28,6 @@ function discViewColors(backgroundColor, textColor) {
     // Text Color
     document.body.style.color = textColor;
     backButton.style.color = backgroundColor;
-
-    // Header and Footer Opacity for Color Matching
-    headerSection.style.opacity = 0.6;
-    footerSection.style.opacity = 0.6;
     
     // Special case for `navbar-collapse`
     setTimeout(function() {
