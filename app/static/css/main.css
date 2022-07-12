@@ -47,13 +47,6 @@ body.noscroll {
     overflow: hidden;
 }
 
-@media (min-width: 992px) {
-    body {
-        padding-left: 60px;
-        padding-right: 60px;
-    }
-}
-
 
 /* Typography
 ------------------------------------------ */
@@ -212,7 +205,7 @@ body.noscroll {
     width: 100%;
     background: var(--pixel-line);
     border-radius: 0;
-    opacity: 0.4;
+    opacity: 1;
     left: 0;
     -webkit-transform: rotate(0deg);
     -moz-transform: rotate(0deg);
@@ -254,7 +247,7 @@ body.noscroll {
   }
   
   .navbar-icon.open span:nth-child(3) {
-    opacity: 0.4;
+    opacity: 1;
     -webkit-transform: rotate(-45deg);
     -moz-transform: rotate(-45deg);
     -o-transform: rotate(-45deg);

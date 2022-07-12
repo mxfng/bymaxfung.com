@@ -14,8 +14,22 @@ Max Fung
 {% endblock %}
 
 {% block content %}
-<a href="/music">Music</a>
-<a href="/software">Software</a>
+<style>
+.content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+}
+</style>
+<div style="display: flex; width: 100vw; height: 100vh;">
+    <div class="row justify-content-center" style="flex: 1; background: beige; justify-content: center; align-items: center;">
+        <a href="/music" class="align-middle" style="font-size: 40px; text-align: center;">Music</a>
+    </div>
+    <div class="row justify-content-center" style="flex: 1; background: gray; justify-content: center; align-items: center;">
+        <a href="/software" class="align-middle" style="font-size: 40px; text-align: center;">Software</a>
+    </div>
+</div>
 {% endblock %}
 
 {% block scripts %}{% endblock %}
