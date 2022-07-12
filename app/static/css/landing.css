@@ -1,0 +1,110 @@
+.content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    margin: 0;
+}
+
+#wrapper {
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+}
+
+.half-screen {
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    z-index: 500;
+}
+
+.music {
+    width: 50vw;
+    float: left;
+    background-color: white;
+}
+
+.music.animateTo {
+    -webkit-transition: background-color 0.35s, width 0.25s ease-in-out;
+    -moz-transition: background-color 0.35s, width 0.25s ease-in-out;
+    -o-transition: background-color 0.35s, width 0.25s ease-in-out;
+    transition: background-color 0.35s, width 0.25s ease-in-out;
+
+    width:100vw;
+    background-color: white;
+}
+
+.music.animateSquish {
+    -webkit-transition: width 0.35s ease-in-out;
+    -moz-transition: width 0.35s ease-in-out;
+    -o-transition: width 0.35s ease-in-out;
+    transition: width 0.35s ease-in-out;
+
+    width:0vw;
+}
+
+.software {
+    width: 50vw;
+    float: right;
+    background-color: black;
+}
+
+.software.animateTo {
+    -webkit-transition: float 0.35s, background-color 0.25s, width 0.25s ease-in-out;
+    -moz-transition: float 0.35s, background-color 0.25s, width 0.25s ease-in-out;
+    -o-transition: float 0.35s, background-color 0.25s, width 0.25s ease-in-out;
+    transition: float 0.35s, background-color 0.25s, width 0.25s ease-in-out;
+
+    float: left;
+    width:100vw;
+    background-color: black;
+}
+
+.software.animateSquish {
+    -webkit-transition: width 0.35s ease-in-out;
+    -moz-transition: width 0.35s ease-in-out;
+    -o-transition: width 0.35s ease-in-out;
+    transition: width 0.35s ease-in-out;
+
+    width:0vw;
+}
+
+.prompt-link {
+    font-size: 6vw;
+    text-align: center;
+    color: white;
+    text-decoration: none;
+    mix-blend-mode: difference;
+
+    -webkit-transition: opacity 0.45s ease-in-out;
+    -moz-transition: opacity 0.45s ease-in-out;
+    -o-transition: opacity 0.45s ease-in-out;
+    transition: opacity 0.45s ease-in-out;
+}
+
+.prompt-link.invisible {
+    opacity: 0;
+}
+
+.navbar-brand {
+    -webkit-transition: left 0.7s ease-in-out;
+    -moz-transition: left 0.7s ease-in-out;
+    -o-transition: left 0.7s ease-in-out;
+    transition: left 0.7s ease-in-out;
+}
+
+.navbar-brand.center {
+    position: absolute;
+    top: 8px;
+    left: calc(50% - 40px);
+}
+
+.navbar-brand.left {
+    left: 0;
+}
+
+.navbar-brand.right {
+    left: calc(100% - 90px);
+}

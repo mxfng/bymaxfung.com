@@ -1,3 +1,7 @@
+body {
+    background-color: #000;
+}
+
 .music-header {
     padding-left: 10px;
     margin-left: 0;
@@ -54,7 +58,6 @@
 
 @media (min-width: 992px) {
     .music-tile:hover {
-        background: white;
         opacity: 0.8;
     }
 }

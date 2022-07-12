@@ -3,6 +3,7 @@
 {% from 'macros.html' import landing_header %}
 
 {% block head %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/landing.css') }}">
 {% endblock %}
 
 {% block title %}
@@ -14,22 +15,17 @@ Max Fung
 {% endblock %}
 
 {% block content %}
-<style>
-.content {
-    position: absolute;
-    top: 0;
-    left: 0;
-    overflow: hidden;
-}
-</style>
-<div style="display: flex; width: 100vw; height: 100vh;">
-    <div class="row justify-content-center" style="flex: 1; background: beige; justify-content: center; align-items: center;">
-        <a href="/music" class="align-middle" style="font-size: 40px; text-align: center; color: var(--primary-color); text-decoration: none;">Music</a>
+<script defer type="text/javascript" src="{{ url_for('static', filename='js/landingPage.js') }}"></script>
+
+<div id="wrapper">
+    <div id="left-half" class="half-screen music row">
+        <a id="left-link" href="/music" class="prompt-link align-middle">Music</a>
     </div>
-    <div class="row justify-content-center" style="flex: 1; background: gray; justify-content: center; align-items: center;">
-        <a href="/software" class="align-middle" style="font-size: 40px; text-align: center; color: var(--primary-color); text-decoration: none;">Software</a>
+    <div id="right-half" class="half-screen software row">
+        <a id="right-link" href="/software" class="prompt-link align-middle">Software</a>
     </div>
 </div>
 {% endblock %}
 
-{% block scripts %}{% endblock %}
+{% block scripts %}
+{% endblock %}

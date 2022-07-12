@@ -8,7 +8,7 @@
     --header-height: 66px;
     --footer-height: 60px;
 
-    --primary-color: #000;
+    --primary-color: white;
     --highlight-color: yellow;
     --muted-color: #aaa;
 
@@ -22,6 +22,7 @@
 }
 
 html, body {
+    background-color: var(--background-color);
     padding: 0;
     margin: 0;
     display: grid;
@@ -62,29 +63,33 @@ body.noscroll {
 /* Navbar */
 
 .header-section {
+    background-color: transparent;
     max-width: var(--max-page-width);
+    mix-blend-mode: difference !important;
+    padding-top: 30px;
+    padding-left: 40px;
+    padding-right: 30px;
 }
 .header {
-    max-width: var(--max-tight-width);
     margin: auto;
 }
-.navbar-expand-lg {
-    z-index: 99;
-}
+
 .navbar-nav > li{
     text-transform: lowercase;
 }
 
 .nav-link {
-    color: var(--primary-color);
+    color: white;
+}
+
+.nav-link:hover {
+    color: white;
+    opacity: 0.5;
 }
 
 .navbar-brand {
     width: 80px;
-}
-
-#site-logo-svg .cls-1 {
-    fill: var(--primary-color);
+    padding: 0;
 }
 
 @media (min-width: 992px) {
@@ -94,17 +99,13 @@ body.noscroll {
         flex-direction: row;
     }
 
-    .navbar-nav {
+    .navbar-lists {
         padding-left: 20px;
         padding-right: 20px;
     }
 
     .navbar-right {
         margin-left: auto;
-    }
-
-    .navbar .nav-item {
-        padding: 0 10px;
     }
 }
 
@@ -264,12 +265,14 @@ body.noscroll {
 ------------------------------------------ */
 
 .content {
+    mix-blend-mode: difference;
     margin: auto;
     padding: 0;
     clear: both;
     opacity: 0;
     transition-duration: 0.3s;
     transition-property: opacity;
+    color: var(--primary-color)
 }
 
 .content.fade {
